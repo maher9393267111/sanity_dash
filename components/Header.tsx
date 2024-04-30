@@ -20,9 +20,9 @@ const Header = () => {
       <div>
         <Link
           className='hidden sm:flex px-5 py-3 text-sm md:text-base bg-gray-900 text-accent items-center rounded-full text-center'
-          href='https://instagram.com/hej_tu_pacio'
+          href='https://instagram.com'
         >
-          Zobacz mojego Instagrama
+          INSTAGRAM
         </Link>
       </div>
     </header>
