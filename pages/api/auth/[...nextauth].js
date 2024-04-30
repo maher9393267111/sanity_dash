@@ -26,8 +26,8 @@ export const authOptions= {
     GoogleProvider({
        
      
-    clientId: NEXT_GOOGLE_KEY,
-    clientSecret: NEXT_SECRET,
+    clientId: process.env.NEXT_GOOGLE_KEY,
+    clientSecret:  process.env.NEXT_SECRET,
 
     authorization: {
               params: {
