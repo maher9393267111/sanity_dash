@@ -22,6 +22,7 @@ export interface Post extends Base{
     slug: Slug;
     title: string;
     description: string;
+    description2: string;
     code: Code
 }
 

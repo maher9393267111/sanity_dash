@@ -5,7 +5,7 @@ import PreviewSuspense from '../../components/PreviwSuspense';
 import Loading from '../../components/Loading';
 import PreviewBlogList from '../../components/PreviewBlogList';
 import BlogList from '../../components/BlogList';
-
+import SliderMain from '../../components/slider'
 
 
 // Revalidate the page every 60 seconds
@@ -18,6 +18,14 @@ const query = groq`
   } | order(_createdAt desc)
 `;
 
+const query2 = groq`
+  *[_type=='design'] {
+    ...,
+  
+  } | order(_createdAt desc)
+`;
+
+
 const HomePage = async () => {
   if (previewData()) {
     return (
@@ -28,7 +36,15 @@ const HomePage = async () => {
   }
 
   const posts = await client.fetch(query);
-  return <BlogList posts={posts} />;
+  const designs = await client.fetch(query2);
+  console.log(designs)
+  return <div>
+
+    
+    <SliderMain data={designs}/>
+     {/* <BlogList posts={posts} /> */}
+     
+      </div>;
 };
 
 export default HomePage;

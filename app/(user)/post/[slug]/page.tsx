@@ -41,7 +41,7 @@ export async function generateStaticParams(){
 
 
 
-const Post = async ({ params: { slug } }: Props) => {
+const PostSingle = async ({ params: { slug } }: Props) => {
   const query = groq`
     //all the post data and also slug field (on studio) matches
     *[_type=='post' && slug.current == $slug][0]
@@ -132,4 +132,4 @@ const Post = async ({ params: { slug } }: Props) => {
   );
 };
 
-export default Post;
+export default PostSingle;
