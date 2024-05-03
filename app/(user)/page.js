@@ -17,6 +17,19 @@ import { groq } from 'next-sanity';
 import { client } from '../../lib/sanity.client';
 
 export const revalidate = 30;
+
+const query = groq`
+  *[_type=='post'] {
+    ...,
+    author->,
+    categories[]->
+  } | order(_createdAt desc)
+`;
+
+
+
+
+
 const bannerquery = groq`
   *[_type=='Homebanner'] {
     ...,
@@ -45,7 +58,7 @@ export const metadata = {
   },
 }
 const HomePage = async () => {
-
+  const posts = await client.fetch(query);
   const homebannerData = await client.fetch(bannerquery);
   const sectionOneData = await client.fetch(onequery);
 
@@ -53,6 +66,7 @@ console.log(sectionOneData[0])
 
   return (
     <>
+    
       <Header1 />
       <Home1Banner data={homebannerData[0]} />
       <Home1BannerMarquee />
