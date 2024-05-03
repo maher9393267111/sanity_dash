@@ -12,17 +12,37 @@ import Home1Portfolio from "../../components/portfolio/Home1Portfolio";
 import Home1Solution from "../../components/solution/Home1Solution";
 import Home1Testimonial from "../../components/testimonial/Home1Testimonial";
 import Home1WorkProcess from "../../components/workProcess/Home1WorkProcess";
+// -----------------
+import { groq } from 'next-sanity';
+import { client } from '../../lib/sanity.client';
+
+export const revalidate = 30;
+const query = groq`
+  *[_type=='Homebanner'] {
+    ...,
+    "video": video.asset->url,
+   
+  } | order(_createdAt desc)
+`;
+
+
+
 
 export const metadata = {
   icons: {
     icon: "/assets/img/sm-logo.svg",
   },
 }
-export default function Home() {
+const HomePage = async () => {
+
+  const homebannerData = await client.fetch(query);
+
+console.log(homebannerData)
+
   return (
     <>
       <Header1 />
-      <Home1Banner />
+      <Home1Banner data={homebannerData[0]} />
       <Home1BannerMarquee />
       <Home1About />
       <Home1Solution />
@@ -38,3 +58,5 @@ export default function Home() {
     </>
   );
 }
+
+export default HomePage;
