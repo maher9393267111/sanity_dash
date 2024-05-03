@@ -2,12 +2,15 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 
 import {visionTool} from '@sanity/vision'
-import { media } from 'sanity-plugin-media'
+
 import {schemaTypes} from './schemas'
 import { myTheme } from './theme';
 import StudioNavbar from './components/StudioNavbar';
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
+import { structureTool } from 'sanity/structure'
+import { media } from 'sanity-plugin-media'
+
 
 
 export default defineConfig({
@@ -19,7 +22,13 @@ export default defineConfig({
   dataset ,
 
   
-  plugins: [deskTool(), visionTool() ,  media()],
+  plugins: [
+
+
+  
+
+
+    deskTool(), visionTool() ,  media()],
 
   schema: {
     types: schemaTypes,
