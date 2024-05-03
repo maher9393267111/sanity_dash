@@ -167,6 +167,7 @@ const Home1About = ({data}) => {
               {data.features.filter(item => item.type === 'alt').map((item, index) => {
 return (
   <div
+  key={index}
   className="col-lg-3 col-md-6 wow animate fadeInUp"
   data-wow-delay="200ms"
   data-wow-duration="1500ms"
