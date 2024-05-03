@@ -10,6 +10,7 @@ const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 import { structureTool } from 'sanity/structure'
 import { media } from 'sanity-plugin-media'
+import {  mediaAssetSource } from 'sanity-plugin-media'
 
 
 
@@ -39,5 +40,15 @@ export default defineConfig({
     }
   },
   theme: myTheme
+,
+
+  form: {
+    image: {
+      assetSources: (previousAssetSources) => {
+        return previousAssetSources.filter((assetSource) => assetSource.title !== mediaAssetSource.title);
+      },
+    },
+  },
+
 
 })
