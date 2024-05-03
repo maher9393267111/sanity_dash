@@ -14,7 +14,7 @@ const Header = () => {
             height={50}
           />
         </Link>
-        <h1>Pacio</h1>
+        <h1>Majd</h1>
       </div>
 
       <div>

@@ -9,7 +9,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
 export default defineConfig({
   name: 'default',
-  title: 'my-blog-sanity',
+  title: 'Admin dashboard',
   basePath: '/studio',
 
    projectId,

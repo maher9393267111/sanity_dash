@@ -4,7 +4,7 @@ export default function CustomStudioHead() {
   return (
     <>
       <NextStudioHead favicons={false} />
-      <title>Studio treści blogu Pacia</title>
+      <title>Studio </title>
       <link
         rel='icon'
         type='image/png'
