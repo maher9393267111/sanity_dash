@@ -53,9 +53,13 @@ const PostSingle = async ({ params: { slug } }: Props) => {
     `;
 
   // "Post" type ni "typings.d.ts"-d bga uchras automataar duudagdana.
-  const post = await client.fetch(query, { slug });
+  const post = await client.fetch(query, { slug }) || [];
 
   return (
+    <div>
+
+{post && (
+    
     <article className='px-10 pb-28'>
       <section className='space-y-2 border border-[#f7ab0a] text-white'>
         <div className='relative min-h-56 flex flex-col nmd:flex-row justify-between'>
@@ -71,11 +75,11 @@ const PostSingle = async ({ params: { slug } }: Props) => {
           <section className='p-5 bg-[#f7ab0a] w-full'>
             <div className='flex flex-col md:flex-row justify-between gap-y-5'>
               <div>
-                <h1 className='text-4xl font-extrabold'> {post.title}</h1>
+                <h1 className='text-4xl font-extrabold'> {post?.title}</h1>
 
                 <p>
                   {/* December 16, 2022 */}
-                  {new Date(post._createdAt).toLocaleDateString('en-US', {
+                  {new Date(post?._createdAt).toLocaleDateString('en-US', {
                     day: 'numeric',
                     month: 'long',
                     year: 'numeric',
@@ -88,7 +92,7 @@ const PostSingle = async ({ params: { slug } }: Props) => {
                 <Image
                   className='rounded-full'
                   src={urlFor(post.author.image).url()}
-                  alt={post.author.name}
+                  alt={post?.author.name}
                   height={40}
                   width={40}
                 />
@@ -116,7 +120,7 @@ const PostSingle = async ({ params: { slug } }: Props) => {
           </section>
         </div>
       </section>
-
+      
 
 
 <div>
@@ -129,6 +133,9 @@ const PostSingle = async ({ params: { slug } }: Props) => {
 
 
     </article>
+
+              )}
+    </div>
   );
 };
 
