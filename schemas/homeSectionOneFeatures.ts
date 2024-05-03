@@ -1,45 +1,31 @@
 import { DocumentTextIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
-export const homebanner = defineType({
-  name: "Homebanner", //filter
-  type: "document",
-  title: "Homebanner",
+export const homeSectionOneFeatures = defineType({
+  name: "homeOneFeatures",
+  type: "object",
+  title: "homeOneFeatures",
   fields: [
     defineField({
       name: "heading",
       type: "string",
     }),
+  
 
     defineField({
-        name: "title",
-        type: "string",
-      }),
-
-      defineField({
         name: "desc",
         type: "string",
       }),
+  
+      
+      defineField({
+        name: "type",
+        type: "string",
+      }),
+    
 
 
-
-    defineField({
-      name: "slug",
-      type: "string",
-    }),
- 
-	defineField({
-        name: "video",
-        title: "Video",
-        type: "file",
-        options: {
-            accept: "video/*",
-        },
-    }),
-
-
-
-
+  
     defineField({
       name: "image",
       type: "image",
@@ -62,7 +48,7 @@ export const homebanner = defineType({
     prepare({ title, image }) {
       return {
         title: title || "Untitled",
-        subtitle: "Homebanner",
+        subtitle: "homeOneFeatures",
         media: image || DocumentTextIcon,
       };
     },

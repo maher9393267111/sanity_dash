@@ -36,6 +36,7 @@ specifiers:
   react-slick: ^0.30.1
   react-type-animation: ^3.2.0
   sanity: ^3.0.6
+  sanity-plugin-icon-picker: ^3.3.0
   sanity-plugin-media: ^2.2.5
   slick-carousel: ^1.8.1
   styled-components: ^6
@@ -74,6 +75,7 @@ dependencies:
   react-slick: 0.30.2_biqbaboplfbrettd7655fr4n2y
   react-type-animation: 3.2.0_biqbaboplfbrettd7655fr4n2y
   sanity: 3.40.0_62mavgdswpboiba2adbnf7xywy
+  sanity-plugin-icon-picker: 3.3.0_wcka44tuqs7mej6hpmltrckjam
   sanity-plugin-media: 2.2.5_yedwurznhqersm2roef4dmemgm
   slick-carousel: 1.8.1_jquery@3.7.1
   styled-components: 6.1.8_biqbaboplfbrettd7655fr4n2y
@@ -1402,6 +1404,14 @@ packages:
 
   /@babel/regjsgen/0.8.0:
     resolution: {integrity: sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==}
+    dev: false
+
+  /@babel/runtime-corejs3/7.24.5:
+    resolution: {integrity: sha512-GWO0mgzNMLWaSYM4z4NVIuY0Cd1fl8cPnuetuddu5w/qGuvt5Y7oUi/kvvQGK9xgOkFJDQX2heIvTRn/OQ1XTg==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      core-js-pure: 3.37.0
+      regenerator-runtime: 0.14.1
     dev: false
 
   /@babel/runtime/7.24.5:
@@ -4453,6 +4463,11 @@ packages:
       browserslist: 4.23.0
     dev: false
 
+  /core-js-pure/3.37.0:
+    resolution: {integrity: sha512-d3BrpyFr5eD4KcbRvQ3FTUx/KWmaDesr7+a3+1+P46IUnNoEt+oiLijPINZMEon7w9oGkIINWxrBAU9DEciwFQ==}
+    requiresBuild: true
+    dev: false
+
   /core-js/3.37.0:
     resolution: {integrity: sha512-fu5vHevQ8ZG4og+LXug8ulUtVxjOcEYvifJr7L5Bfq9GOztVqsKd9/59hUk2ZSbCrS3BqUr3EpaYGIYzq7g3Ug==}
     requiresBuild: true
@@ -4693,6 +4708,13 @@ packages:
   /decamelize/1.2.0:
     resolution: {integrity: sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /decamelize/3.2.0:
+    resolution: {integrity: sha512-4TgkVUsmmu7oCSyGBm5FvfMoACuoh9EOidm7V5/J2X2djAwwt57qb3F2KMP2ITqODTCSwb+YRV+0Zqrv18k/hw==}
+    engines: {node: '>=6'}
+    dependencies:
+      xregexp: 4.4.1
     dev: false
 
   /decimal.js/10.4.3:
@@ -5707,6 +5729,11 @@ packages:
       tslib: 2.6.2
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
+    dev: false
+
+  /framework7-icons/5.0.5:
+    resolution: {integrity: sha512-bvHMLyujV9TFuudehd3ORZ/EvNp19Ir3ckVzYAOf3MkLymHba/9oHLsgopCh0x5UsrYZUpkrE+fd7ggj5y4wRw==}
+    engines: {node: '>= 0.10.0'}
     dev: false
 
   /from2/2.3.0:
@@ -6923,6 +6950,10 @@ packages:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
     dev: false
 
+  /memoize-one/5.2.1:
+    resolution: {integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==}
+    dev: false
+
   /memoize-one/6.0.0:
     resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==}
     dev: false
@@ -8115,6 +8146,14 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
+  /react-icons/4.12.0_react@18.2.0:
+    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -8271,6 +8310,16 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
+  /react-virtualized-auto-sizer/1.0.24_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-3kCn7N9NEb3FlvJrSHWGQ4iVl+ydQObq2fHMn12i5wbtm74zHOPhz/i64OL3c1S1vi9i2GXtZqNqUJTQ+BnNfg==}
+    peerDependencies:
+      react: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0
+      react-dom: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /react-virtuoso/4.7.10_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-l+fnBf/G1Fp6pHCnhFq2Ra4lkZtT6c5XrS9rCS0OA6de7WGLZviCo0y61CUZZG79TeAw3L7O4czeNPiqh9CIrg==}
     engines: {node: '>=10'}
@@ -8278,6 +8327,19 @@ packages:
       react: '>=16 || >=17 || >= 18'
       react-dom: '>=16 || >=17 || >= 18'
     dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-window/1.8.10_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Y0Cx+dnU6NLa5/EvoHukUD0BklJ8qITCtVEPY1C/nL8wwoZ0b5aEw8Ff1dOVHw7fCzMt55XfJDd8S8W8LCaUCg==}
+    engines: {node: '>8.0.0'}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.24.5
+      memoize-one: 5.2.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
@@ -8630,6 +8692,25 @@ packages:
     engines: {node: '>=14.18'}
     dependencies:
       '@sanity/diff-match-patch': 3.1.1
+    dev: false
+
+  /sanity-plugin-icon-picker/3.3.0_wcka44tuqs7mej6hpmltrckjam:
+    resolution: {integrity: sha512-bf9oI415fbiUG63Tjfw583EPDFxCKtTwTlzCeoP3qjfJ2HRugvCXZP3zcyit7pfc2y4UsTeAltuNfj7k8rr+oQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: ^18
+      sanity: ^3
+    dependencies:
+      '@sanity/incompatible-plugin': 1.0.4_biqbaboplfbrettd7655fr4n2y
+      decamelize: 3.2.0
+      framework7-icons: 5.0.5
+      react: 18.2.0
+      react-icons: 4.12.0_react@18.2.0
+      react-virtualized-auto-sizer: 1.0.24_biqbaboplfbrettd7655fr4n2y
+      react-window: 1.8.10_biqbaboplfbrettd7655fr4n2y
+      sanity: 3.40.0_62mavgdswpboiba2adbnf7xywy
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /sanity-plugin-media/2.2.5_yedwurznhqersm2roef4dmemgm:
@@ -10090,6 +10171,12 @@ packages:
 
   /xregexp/2.0.0:
     resolution: {integrity: sha512-xl/50/Cf32VsGq/1R8jJE5ajH1yMCQkpmoS10QbFZWl2Oor4H0Me64Pu2yxvsRWK3m6soJbmGfzSR7BYmDcWAA==}
+    dev: false
+
+  /xregexp/4.4.1:
+    resolution: {integrity: sha512-2u9HwfadaJaY9zHtRRnH6BY6CQVNQKkYm3oLtC9gJXXzfsbACg5X5e4EZZGVAH+YIfa+QA9lsFQTTe3HURF3ag==}
+    dependencies:
+      '@babel/runtime-corejs3': 7.24.5
     dev: false
 
   /xtend/4.0.2:

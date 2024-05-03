@@ -13,6 +13,7 @@ SwiperCore.use([Autoplay, EffectFade, Navigation, Pagination]);
 import client from '../../lib/sanity.client'
 import { getFile } from '@sanity/asset-utils'
 
+
 const Home1Banner = ({data}) => {
   const [isOpen, setOpen] = useState(false);
   const settings = useMemo(() => {

@@ -1,7 +1,9 @@
 "use client";
 import CountUp from "react-countup";
 import React from "react";
-const Home1About = () => {
+import urlFor from '../../lib/urlFor';
+import Image from 'next/image';
+const Home1About = ({data}) => {
   return (
     <>
       <div className="home1-about-section mb-110">
@@ -25,7 +27,7 @@ const Home1About = () => {
                         <path d="M6.6304 0.338424C6.67018 -0.112811 7.32982 -0.112807 7.3696 0.338428L7.72654 4.38625C7.75291 4.68505 8.10454 4.83069 8.33443 4.63804L11.4491 2.02821C11.7963 1.73728 12.2627 2.20368 11.9718 2.55089L9.36197 5.66556C9.1693 5.89546 9.31496 6.24709 9.61374 6.27346L13.6615 6.6304C14.1128 6.67018 14.1128 7.32982 13.6615 7.3696L9.61374 7.72654C9.31496 7.75291 9.1693 8.10454 9.36197 8.33443L11.9718 11.4491C12.2627 11.7963 11.7963 12.2627 11.4491 11.9718L8.33443 9.36197C8.10454 9.1693 7.75291 9.31496 7.72654 9.61374L7.3696 13.6615C7.32982 14.1128 6.67018 14.1128 6.6304 13.6615L6.27346 9.61374C6.24709 9.31496 5.89546 9.1693 5.66556 9.36197L2.55089 11.9718C2.20368 12.2627 1.73729 11.7963 2.02822 11.4491L4.63804 8.33443C4.83069 8.10454 4.68504 7.75291 4.38625 7.72654L0.338424 7.3696C-0.112811 7.32982 -0.112807 6.67018 0.338428 6.6304L4.38625 6.27346C4.68505 6.24709 4.83069 5.89546 4.63804 5.66556L2.02821 2.55089C1.73728 2.20368 2.20368 1.73729 2.55089 2.02822L5.66556 4.63804C5.89546 4.83069 6.24709 4.68504 6.27346 4.38625L6.6304 0.338424Z" />
                       </g>
                     </svg>
-                    Expertise You Can Trust
+                    {data?.heading}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={14}
@@ -38,16 +40,10 @@ const Home1About = () => {
                     </svg>
                   </span>
                   <h2>
-                    We are a Startup agency working with young talents on
-                    delivering unique ideas and creative work.
+                   {data?.title}
                   </h2>
                   <p>
-                    Where innovation meets passion in a journey that started
-                    with a simple idea and a shared dream. Founded in recent
-                    year we embarked on a mission to bring the new innovation
-                    and introduce the technology. From humble beginnings to our
-                    current aspirations, every step has been fueled by a
-                    relentless commitment
+              {data?.desc}
                   </p>
                 </div>
               </div>
@@ -59,9 +55,21 @@ const Home1About = () => {
             >
               <div className="about-countdown-area">
                 <ul>
-                  <li className="single-countdown">
-                    <div className="icon">
-                      <svg
+                
+                {data.features.filter(item => item.type === 'side').map((item, index) => {
+                  
+            return (
+
+<li key={index} className="single-countdow flex gap-2">
+                    <div className="ico">
+                    <img
+                  className='object-cover !h-5 !w-5 object-center'
+                  src={urlFor(item.image).url()}
+                  
+                  fill
+                />
+
+                      {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={40}
                         height={40}
@@ -73,19 +81,29 @@ const Home1About = () => {
                           <path d="M20 29.9378C24.6625 29.9378 28.4556 26.1446 28.4556 21.4822C28.4556 20.7886 28.3705 20.0973 28.2026 19.4273C28.1839 19.3528 28.1508 19.2827 28.105 19.221C28.0592 19.1593 28.0018 19.1073 27.9359 19.0678C27.87 19.0283 27.797 19.0022 27.721 18.9909C27.6451 18.9797 27.5676 18.9835 27.4931 19.0022C27.4186 19.0208 27.3485 19.054 27.2869 19.0998C27.2252 19.1455 27.1731 19.203 27.1336 19.2689C27.0942 19.3347 27.068 19.4077 27.0568 19.4837C27.0455 19.5597 27.0493 19.6371 27.068 19.7116C27.2129 20.2907 27.2861 20.8853 27.286 21.4822C27.286 25.4996 24.0175 28.7682 20 28.7682C15.9826 28.7682 12.714 25.4996 12.714 21.4822C12.714 17.4646 15.9826 14.1961 20 14.1961C20.7028 14.1958 21.4018 14.2974 22.0754 14.4978C22.2241 14.542 22.3842 14.5254 22.5206 14.4516C22.6571 14.3778 22.7586 14.2528 22.8028 14.1042C22.8471 13.9555 22.8305 13.7953 22.7567 13.6589C22.6829 13.5225 22.5579 13.421 22.4092 13.3767C21.6273 13.1442 20.8158 13.0262 20 13.0265C15.3376 13.0265 11.5444 16.8196 11.5444 21.4822C11.5444 26.1445 15.3376 29.9378 20 29.9378Z" />
                           <path d="M27.3129 11.4224L19.4283 19.1532L18.3711 18.0223C18.0299 17.6576 17.4555 17.6382 17.0908 17.9794L15.2815 19.6707C15.1944 19.7518 15.1242 19.8493 15.075 19.9577C15.0258 20.066 14.9985 20.1831 14.9949 20.302C14.9905 20.4209 15.0098 20.5395 15.0517 20.6509C15.0935 20.7624 15.157 20.8644 15.2385 20.9511L17.7952 23.6858C17.9201 23.8185 18.0614 23.9347 18.2158 24.0317C18.3093 24.091 18.4179 24.1225 18.5287 24.1224H20.1964C20.3074 24.1224 20.4161 24.0909 20.5098 24.0314C20.6369 23.9511 20.7552 23.8577 20.8628 23.7527L24.128 20.5512C24.238 20.4425 24.3004 20.2946 24.3016 20.1399C24.3028 19.9852 24.2427 19.8364 24.1344 19.7259C24.0261 19.6155 23.8785 19.5525 23.7238 19.5506C23.5691 19.5488 23.4201 19.6083 23.3092 19.7161L20.044 22.9177C20.0317 22.9296 20.019 22.9415 20.0058 22.9529H18.7184C18.6938 22.9318 18.6708 22.9098 18.6497 22.8872L16.2731 20.345L17.697 19.0138L18.7584 20.1491C18.8406 20.2377 18.9399 20.3088 19.0502 20.3581C19.1605 20.4075 19.2797 20.434 19.4005 20.4363C19.6489 20.4427 19.8788 20.3497 20.0544 20.1775L27.9436 12.4423L29.3082 13.8342L25.0957 17.9646C24.9857 18.0734 24.9233 18.2213 24.9221 18.3759C24.9209 18.5306 24.981 18.6795 25.0893 18.7899C25.1976 18.9003 25.3452 18.9634 25.4999 18.9652C25.6546 18.9671 25.8037 18.9075 25.9145 18.7997L30.3153 14.4847C30.4006 14.4016 30.4685 14.3024 30.5151 14.1929C30.5617 14.0834 30.5862 13.9657 30.587 13.8467C30.5885 13.7277 30.5664 13.6096 30.5219 13.4992C30.4775 13.3888 30.4116 13.2883 30.328 13.2035L28.5942 11.4351C28.5111 11.3499 28.4119 11.282 28.3024 11.2353C28.1928 11.1887 28.0751 11.1643 27.9561 11.1635C27.7106 11.1628 27.4858 11.253 27.3129 11.4224ZM11.2118 15.0966C11.3702 15.3908 11.6639 15.5738 11.9973 15.5858C12.009 15.5863 12.0207 15.5865 12.0324 15.5865C12.3545 15.5865 12.6477 15.4256 12.8222 15.1511C13.1299 14.6673 13.5379 14.2702 14.0695 13.9369C14.3516 13.76 14.516 13.4559 14.5093 13.1234C14.5026 12.7943 14.3283 12.5005 14.043 12.3374C13.4866 12.019 13.08 11.6303 12.8003 11.149C12.6333 10.8615 12.3343 10.689 12.0007 10.6873H11.9958C11.6642 10.6873 11.3658 10.8566 11.1968 11.1408C10.9135 11.6173 10.5304 11.9969 10.0257 12.3017C9.88409 12.3874 9.76761 12.5089 9.68796 12.6539C9.60832 12.799 9.56832 12.9625 9.57201 13.1279C9.57996 13.464 9.76078 13.7599 10.0558 13.9195C10.5514 14.1877 10.9297 14.5727 11.2118 15.0966ZM11.9949 12.0553C12.2951 12.4755 12.6786 12.8431 13.1404 13.1531C12.7144 13.4605 12.3488 13.8165 12.048 14.2165C11.7517 13.764 11.3836 13.3883 10.948 13.0941C11.3591 12.8006 11.7096 12.4529 11.9949 12.0553ZM31.2057 31.2186C31.8319 31.5573 32.3092 32.043 32.6648 32.7034C32.836 33.0215 33.1535 33.2192 33.5139 33.2323C33.5266 33.2328 33.5393 33.233 33.5519 33.233C33.9002 33.233 34.2175 33.0589 34.4063 32.7619C34.7913 32.1564 35.3011 31.6599 35.9646 31.2438C36.2699 31.0526 36.4478 30.7235 36.4405 30.3638C36.4334 30.0083 36.2451 29.6909 35.9368 29.5146C35.2394 29.1156 34.729 28.6269 34.3767 28.0209C34.1963 27.7105 33.8732 27.5241 33.5126 27.5222H33.5074C33.1489 27.5222 32.8264 27.7051 32.6438 28.0121C32.2929 28.6024 31.7984 29.0927 31.1743 29.4695C31.0211 29.5622 30.8951 29.6937 30.8089 29.8506C30.7226 30.0076 30.6793 30.1845 30.6833 30.3635C30.6919 30.7266 30.8872 31.0462 31.2057 31.2186ZM33.5066 28.8364C33.9085 29.4463 34.4524 29.9685 35.1285 30.3933C34.5001 30.8208 33.9752 31.3325 33.5634 31.919C33.1628 31.2562 32.6393 30.7229 32.0026 30.329C32.6119 29.9232 33.1163 29.4226 33.5066 28.8364ZM29.3156 7.65117C29.9418 7.98996 30.419 8.47566 30.7747 9.13616C30.946 9.45421 31.2634 9.65188 31.6238 9.6649C31.6365 9.66537 31.6491 9.6656 31.6618 9.6656C32.01 9.6656 32.3273 9.49141 32.5162 9.19449C32.9012 8.58903 33.411 8.0925 34.0745 7.67644C34.3797 7.48517 34.5577 7.15613 34.5504 6.79644C34.5432 6.44088 34.3549 6.12345 34.0467 5.94716C33.3492 5.54817 32.8388 5.05952 32.4866 4.45351C32.3062 4.1431 31.9831 3.95667 31.6225 3.9548C31.4474 3.95292 31.2749 3.99721 31.1223 4.08322C30.9698 4.16922 30.8426 4.2939 30.7536 4.4447C30.4027 5.03496 29.9082 5.52533 29.2841 5.90209C29.1309 5.99481 29.0049 6.12629 28.9186 6.28326C28.8324 6.44023 28.7891 6.61716 28.7931 6.7962C28.8018 7.1594 28.9971 7.47893 29.3156 7.65117ZM31.6164 5.26903C32.0182 5.87893 32.5622 6.40112 33.2383 6.82591C32.6099 7.25336 32.0849 7.76517 31.6731 8.3516C31.2726 7.68883 30.7491 7.15566 30.1124 6.76166C30.7217 6.35581 31.2261 5.85523 31.6164 5.26903Z" />
                         </g>
-                      </svg>
+                      </svg> */}
                     </div>
                     <div className="content">
                       <div className="number">
-                        <h5 className="counter">
+                        {/* <h5 className="counter">
                           <CountUp end={150} delay={5} />
-                        </h5>
-                        <span>Project</span>
+                        </h5> */}
+                        {/* <span>Project</span> */}
                       </div>
-                      <p>We Have Completed</p>
+                      <p className="!text-2xl">{item.title}</p>
                     </div>
                   </li>
-                  <li className="single-countdown">
+                      
+            )
+          
+          
+          
+          })}
+
+
+
+                  
+                  {/* <li className="single-countdown">
                     <div className="icon">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +151,9 @@ const Home1About = () => {
                       </div>
                       <p>Average Answer Time</p>
                     </div>
-                  </li>
+                  </li> */}
+
+
                 </ul>
               </div>
             </div>
@@ -142,92 +162,37 @@ const Home1About = () => {
         <div className="about-bottom-area">
           <div className="container-fluid">
             <div className="row g-5">
-              <div
-                className="col-lg-3 col-md-6 wow animate fadeInUp"
-                data-wow-delay="200ms"
-                data-wow-duration="1500ms"
-              >
-                <div className="feature-card">
-                  <div className="icon">
-                    <img
-                      src="assets/img/home1/icon/about-feature-card-icon1.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>Expertise and Innovation</h4>
-                    <p>
-                      We pride ourselves staying at the front of innovation,
-                      constantly pushing boundaries a redefining what's
-                      possible.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-lg-3 col-md-6 wow animate fadeInUp"
-                data-wow-delay="400ms"
-                data-wow-duration="1500ms"
-              >
-                <div className="feature-card">
-                  <div className="icon">
-                    <img
-                      src="assets/img/home1/icon/about-feature-card-icon2.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>Transparent Process</h4>
-                    <p>
-                      Our transparent process is designed to demystify the
-                      journey from concept to delivery.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-lg-3 col-md-6 wow animate fadeInUp"
-                data-wow-delay="600ms"
-                data-wow-duration="1500ms"
-              >
-                <div className="feature-card">
-                  <div className="icon">
-                    <img
-                      src="assets/img/home1/icon/about-feature-card-icon3.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>Client-Centric Approach</h4>
-                    <p>
-                      Our dedicated team takes the time to listen, &amp;
-                      collaborate, ensuring that every interaction a step
-                      towards your success.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-lg-3 col-md-6 wow animate fadeInUp"
-                data-wow-delay="800ms"
-                data-wow-duration="1500ms"
-              >
-                <div className="feature-card">
-                  <div className="icon">
-                    <img
-                      src="assets/img/home1/icon/about-feature-card-icon4.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>Cost-Effective</h4>
-                    <p>
-                      Our commitment to providing cost-effective solutions is
-                      ingrained in our mission.
-                    </p>
-                  </div>
-                </div>
-              </div>
+             
+           
+              {data.features.filter(item => item.type === 'alt').map((item, index) => {
+return (
+  <div
+  className="col-lg-3 col-md-6 wow animate fadeInUp"
+  data-wow-delay="200ms"
+  data-wow-duration="1500ms"
+>
+  <div className="feature-card">
+    <div className="icon">
+          <img
+                  className='object-cover !h-5 !w-5 object-center'
+                  src={urlFor(item.image).url()}
+                  
+                  fill
+                />
+    </div>
+    <div className="content">
+      <h4>{item.title}</h4>
+      <p>
+   {item.desc}
+      </p>
+    </div>
+  </div>
+</div>
+
+)})}
+
+
+
             </div>
           </div>
         </div>
