@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 //  import { InlineSvgPreviewComponent } from '@focus-reactive/sanity-plugin-inline-svg-input'
  import styled, { css } from 'styled-components'
-//  import { InlineSvgPreviewComponent } from '../../lib/InlineSvgPreviewComponent'
+  import { InlineSvgPreviewComponent } from '../../lib/InlineSvgPreviewComponent'
 
 const Home1Solution = ({data}) => {
 
@@ -15,10 +15,17 @@ const Home1Solution = ({data}) => {
 // `
 
 
-//   const Icon = styled(InlineSvgPreviewComponent)`
+//   const Icon = styled(InlineSvgPreview)`
 //   ${IconStyle}
 // `
 
+
+// const InlineSvgPreview = styled.div`
+//   svg {
+//     width: 100%;
+//     height: 100%;
+//   }
+// `
 
 
   return (
@@ -59,6 +66,14 @@ const Home1Solution = ({data}) => {
             <h4><Link href={`/service/${item?.slug?.current}`}>{item?.heading}</Link></h4>
       
       <h4 className='!h-[18px] !w-[18px]'>
+
+      <InlineSvgPreviewComponent
+      style={{   width: "42px !important" ,
+           height: "42px",
+           marginRight: "8px",
+           flexShrink: "0"}}
+      
+      value={item?.sidebarIcon} /> 
  
 {/* <Icon value={item?.sidebarIcon} /> */}
 

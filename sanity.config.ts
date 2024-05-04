@@ -13,7 +13,7 @@ import { structureTool } from 'sanity/structure'
 import { media } from 'sanity-plugin-media'
 import {  mediaAssetSource } from 'sanity-plugin-media'
 import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
-// import { inlineSvgInput } from '@focus-reactive/sanity-plugin-inline-svg-input'
+ import { inlineSvgInput } from '@focus-reactive/sanity-plugin-inline-svg-input'
 
 
 
@@ -32,7 +32,7 @@ export default defineConfig({
   
 
     // iconPicker(),
-    // inlineSvgInput(),
+     inlineSvgInput(),
     vercelDeployTool(),
     deskTool(), visionTool() ,  media()],
 
