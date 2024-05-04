@@ -25,6 +25,7 @@
     "dompurify": "^3.1.2",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
+    "jsdom": "^24.0.0",
     "lucide-react": "^0.376.0",
     "next": "13.0.4",
     "next-auth": "^4.24.7",

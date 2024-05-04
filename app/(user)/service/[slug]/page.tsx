@@ -30,7 +30,7 @@ const ServiceDetailPage = async ({ params }: { params: { slug: string } }) => {
 
   const service = await client.fetch(query, { slug }) || [];
 
-  console.log("SERVICEEEE" ,service ,slug)
+  
 
   return (
     <div>
