@@ -4,7 +4,10 @@ import urlFor from '../../../../lib/urlFor';
 import MainLayout from "../../../../components/layout/MainLayout";
 import Home5Workprocess from "../../../../components/workProcess/Home5Workprocess";
 
-export default function mainService({data:service}) {
+export default function mainService({data}) {
+
+  console.log("INNNNNNNNNNSASASAS" ,data)
+
   return (
     <MainLayout>
     <div
@@ -21,11 +24,11 @@ export default function mainService({data:service}) {
             >
               <div className="service-details-top-content">
                 <h2>
-                    {service?.heading2}
+                 111   {data?.heading2}
                   {/* Software <span>Development.</span> */}
                 </h2>
                 <p>
-          {service?.desc2}
+          {data?.desc2}
                 </p>
                 <ul className="key-features">
                   <li>

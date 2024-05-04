@@ -53,7 +53,7 @@ const Home1Solution = ({data}) => {
                   
                   return (
 
-      <div className="col-lg-4 col-md-6 wow animate fadeInDown" data-wow-delay="200ms" data-wow-duration="1500ms">
+      <div key={index} className="col-lg-4 col-md-6 wow animate fadeInDown" data-wow-delay="200ms" data-wow-duration="1500ms">
         <div className="service-card">
           <div className="content">
             <h4><Link href={`/service/${item?.slug?.current}`}>{item?.heading}</Link></h4>
