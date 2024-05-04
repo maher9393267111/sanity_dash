@@ -58,8 +58,43 @@ const servicesquery = groq`
 `;
 
 
+//workprocess
+
+const workPorocessquery = groq`
+  *[_type=='workprocess'] {
+    ...
+    
+    
+   
+  } | order(_createdAt desc)
+`;
 
 
+//homeapproach
+
+
+const approachquery = groq`
+  *[_type=='homeapproach'] {
+    ...
+    
+    
+   
+  } | order(_createdAt desc)
+`;
+
+
+
+//clientcomments"
+
+
+const clientsquery = groq`
+  *[_type=='clientcomments'] {
+    ...
+    
+    
+   
+  } | order(_createdAt desc)
+`;
 
 
 export const metadata = {
@@ -72,8 +107,11 @@ const HomePage = async () => {
   const homebannerData = await client.fetch(bannerquery);
   const sectionOneData = await client.fetch(onequery);
   const servicesData = await client.fetch(servicesquery);
+  const workProcessData = await client.fetch(workPorocessquery);
+  const approachData = await client.fetch(approachquery);
+  const clientsData = await client.fetch(clientsquery);
 
-console.log(servicesData)
+console.log(approachData)
 
   return (
     <>
@@ -83,12 +121,17 @@ console.log(servicesData)
       <Home1BannerMarquee />
       <Home1About data={sectionOneData[0]} />
       <Home1Solution data={servicesData} />
+      <Home1WorkProcess data={workProcessData} />
+      <Home1Approach data={approachData} />
+      <Home1Testimonial data={clientsData} />
+
+
       <Home1Portfolio />
-      <Home1WorkProcess />
+     
       <BannerWithCaseStudySlider />
-      <Home1Approach />
+     
       <LogoMarquee />
-      <Home1Testimonial />
+      
       <Home1Blog />
       <Home1Contact />
       <Footer />

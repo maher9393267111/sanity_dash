@@ -1,26 +1,37 @@
 import { DocumentTextIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
-export const designType = defineType({
-  name: "design",
+export const clientcomments = defineType({
+  name: "clientcomments",
   type: "document",
-  title: "Design",
+  title: "ClientComments",
   fields: [
     defineField({
-      name: "heading",
-      type: "string",
-    }),
-    defineField({
-      name: "slug",
+      name: "title",
       type: "string",
     }),
 
+        defineField({
+          name: "username",
+          type: "string",
+        }),
+     
+        defineField({
+            name: "userwork",
+            type: "string",
+          }),
+       
+   
+ 
+
+
     defineField({
       name: "description",
-      description: "Enter a short snippet for the blog...",
+      description: "Enter comment desc.",
       title: "Description",
       type: "string",
     }),
+
 
     defineField({
       name: "image",
@@ -40,7 +51,7 @@ export const designType = defineType({
     prepare({ title, image }) {
       return {
         title: title || "Untitled",
-        subtitle: "Design",
+        subtitle: "ClientComments",
         media: image || DocumentTextIcon,
       };
     },

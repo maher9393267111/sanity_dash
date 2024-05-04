@@ -1,6 +1,7 @@
 import React from "react";
+import urlFor from '../../lib/urlFor';
 
-const Home1Approach = () => {
+const Home1Approach = ({data:item}) => {
   return (
     <>
       <div className="home1-approach-section mb-110">
@@ -43,14 +44,23 @@ const Home1Approach = () => {
         <div className="approach-area">
           <div className="container-fluid">
             <div className="row g-xl-4 gy-5 divider">
+
+
+            {item?.map((item, index) => {
+                                  return (
+
               <div
+              key={index}
                 className="col-xl-3 col-lg-4 col-sm-6 wow animate fadeInUp"
                 data-wow-delay="200ms"
                 data-wow-duration="1500ms"
               >
                 <div className="single-approach">
                   <div className="img-area">
-                    <img src="assets/img/home1/approach-img1.png" alt="" />
+                    <img 
+                  src={urlFor(item?.image).url()} 
+                    
+                    alt="" />
                   </div>
                   <div className="dot">
                     <span />
@@ -58,174 +68,34 @@ const Home1Approach = () => {
                   <div className="approach-content-wrap">
                     <div className="scroll-content-area">
                       <div className="content scrollTextAni">
-                        <span>Step 01</span>
-                        <h5>Discovery &amp; Consultation</h5>
+                        <span>Step {item?.index}</span>
+                        <h5>{item?.heading}</h5>
                         <p>
-                          Foren your case studies issoni crucial touris then
-                          attention of your audience.
+                        {item?.desc}
                         </p>
                         <ul>
-                          <li>
-                            <strong>Brainstorming: </strong>Collaborate to
-                            generate and refine innovative ideas.
+
+
+                        {item?.list?.map((listitem, index) => {
+                                  return (
+                          <li key={index}>
+                            <strong>{listitem?.title}: </strong>
+                         {listitem?.desc}.
                           </li>
-                          <li>
-                            <strong>Problem Identification: </strong>Identify
-                            market gaps and challenges your startup.
-                          </li>
-                          <li>
-                            <strong>Strategic Planning: </strong>Develop a
-                            roadmap by strategically aligning innovative ideas.
-                          </li>
-                          <li>
-                            <strong>Solution Proposals: </strong>Offer
-                            specialised remedies based on identified market
-                            gaps.
-                          </li>
+
+                                  )})}
+                    
                         </ul>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                className="col-xl-3 col-lg-4 col-sm-6 wow animate fadeInUp"
-                data-wow-delay="400ms"
-                data-wow-duration="1500ms"
-              >
-                <div className="single-approach">
-                  <div className="img-area">
-                    <img src="assets/img/home1/approach-img2.png" alt="" />
-                  </div>
-                  <div className="dot">
-                    <span />
-                  </div>
-                  <div className="approach-content-wrap">
-                    <div className="scroll-content-area">
-                      <div className="content scrollTextAni">
-                        <span>Step 02</span>
-                        <h5>Planning and Strategy </h5>
-                        <p>
-                          Strategic planning for optimal results in a concise,
-                          effective approach.
-                        </p>
-                        <ul>
-                          <li>
-                            <strong>Collaborating: </strong>Work together to
-                            produce and improve creative concepts.
-                          </li>
-                          <li>
-                            <strong>Resource Allocation: </strong>Optimize
-                            planning by efficiently allocating resources and
-                            ensuring a streamlined approach.
-                          </li>
-                          <li>
-                            <strong>Problem Identification: </strong>Determine
-                            your startup's obstacles and market gaps.
-                          </li>
-                          <li>
-                            <strong>Solution Development: </strong>Translate
-                            identified challenges into strategic solutions and
-                            business growth.
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-xl-3 col-lg-4 col-sm-6 wow animate fadeInUp"
-                data-wow-delay="600ms"
-                data-wow-duration="1500ms"
-              >
-                <div className="single-approach">
-                  <div className="img-area">
-                    <img src="assets/img/home1/approach-img3.png" alt="" />
-                  </div>
-                  <div className="dot">
-                    <span />
-                  </div>
-                  <div className="approach-content-wrap">
-                    <div className="scroll-content-area">
-                      <div className="content scrollTextAni">
-                        <span>Step 03</span>
-                        <h5>Design &amp; Development</h5>
-                        <p>
-                          Crafting seamless experiences through innovative
-                          design and development.
-                        </p>
-                        <ul>
-                          <li>
-                            <strong>Generating ideas: </strong>Come up with and
-                            work through creative ideas together.
-                          </li>
-                          <li>
-                            <strong>Prototyping Excellence: </strong>Transform
-                            ideas into tangible prototypes and user-centric
-                            design.
-                          </li>
-                          <li>
-                            <strong>Iterative Development: </strong>Continuously
-                            refine and enhance solutions based on identified
-                            problems.
-                          </li>
-                          <li>
-                            <strong>Problem Identification: </strong>Identify
-                            market gaps and challenges your startup.
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-xl-3 col-lg-4 col-sm-6 wow animate fadeInUp"
-                data-wow-delay="800ms"
-                data-wow-duration="1500ms"
-              >
-                <div className="single-approach">
-                  <div className="img-area">
-                    <img src="assets/img/home1/approach-img4.png" alt="" />
-                  </div>
-                  <div className="dot">
-                    <span />
-                  </div>
-                  <div className="approach-content-wrap">
-                    <div className="scroll-content-area">
-                      <div className="content scrollTextAni">
-                        <span>Step 04</span>
-                        <h5>Quality Assurance</h5>
-                        <p>
-                          Ensuring excellence through meticulous testing and
-                          validation processes.
-                        </p>
-                        <ul>
-                          <li>
-                            <strong>Idea generation: </strong>Collaborate
-                            together to generate and develop creative ideas.
-                          </li>
-                          <li>
-                            <strong>Continuous Testing:: </strong>Rigorous
-                            quality assurance through ongoing testing ensures
-                            robust solutions.
-                          </li>
-                          <li>
-                            <strong>Performance Testing: </strong>Rigorously
-                            evaluate the functionality and efficiency of your
-                            startup's systems.
-                          </li>
-                          <li>
-                            <strong>Problem Identification: </strong>Identify
-                            market gaps and challenges your startup.
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+
+                                  )})}
+
+              
             </div>
           </div>
         </div>

@@ -7,9 +7,10 @@ import SwiperCore, {
   Navigation,
   Pagination,
 } from "swiper";
+import urlFor from '../../lib/urlFor';
 SwiperCore.use([Autoplay, EffectFade, Navigation, Pagination]);
 
-const Home1Testimonial = () => {
+const Home1Testimonial = ({data:items}) => {
   const settings = useMemo(() => {
     return {
       slidesPerView: "auto",
@@ -185,132 +186,43 @@ const Home1Testimonial = () => {
                   {...settings}
                   className="swiper home1-testimonial-slider"
                 >
-                  <div className="swiper-wrapper">
+
+{items?.map((item, index) => {
+                                  return (
+                  <div key={index} className="swiper-wrapper">
                     <SwiperSlide className="swiper-slide">
                       <div className="testimonial-card3 style-2">
-                        <span>Great Digital Marketing!</span>
+                        <span>{item?.title}!</span>
                         <p>
-                          “You can adjust the length and style of the line to
-                          match the overall design and formatting of your
-                          document. Some other divider options include dashes,
-                          stars, or even a graphical element.”
+                          {item?.description}
                         </p>
                         <div className="author-and-logo-area">
                           <div className="author-area">
                             <div className="author-img">
                               <img
-                                src="assets/img/home2/testi-author-05.png"
+                                src={urlFor(item?.image).url()} 
                                 alt=""
                               />
                             </div>
                             <div className="content">
-                              <h6>Luke Julian</h6>
-                              <span>CEO At astra.com</span>
+                              <h6>{item?.username}</h6>
+                              <span>{item?.userwork}</span>
                             </div>
                           </div>
-                          <div className="logo">
+                          {/* <div className="logo">
                             <img
                               src="assets/img/home1/icon/testimonial-card-logo1.svg"
                               alt=""
                             />
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </SwiperSlide>
-                    <SwiperSlide className="swiper-slide">
-                      <div className="testimonial-card3 style-2">
-                        <span>Great Consulting!</span>
-                        <p>
-                          “The line's length and style can be changed to better
-                          fit your document's general layout and style. Stars,
-                          dashes, or even a graphical element are some other
-                          divider alternatives.”
-                        </p>
-                        <div className="author-and-logo-area">
-                          <div className="author-area">
-                            <div className="author-img">
-                              <img
-                                src="assets/img/home2/testi-author-01.png"
-                                alt=""
-                              />
-                            </div>
-                            <div className="content">
-                              <h6>David Beckham</h6>
-                              <span>CEO At astra.com</span>
-                            </div>
-                          </div>
-                          <div className="logo">
-                            <img
-                              src="assets/img/home1/icon/testimonial-card-logo2.svg"
-                              alt=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className="swiper-slide">
-                      <div className="testimonial-card3 style-2">
-                        <span>Great Digital Marketing!</span>
-                        <p>
-                          “You can adjust the length and style of the line to
-                          match the overall design and formatting of your
-                          document. Some other divider options include dashes,
-                          stars, or even a graphical element.”
-                        </p>
-                        <div className="author-and-logo-area">
-                          <div className="author-area">
-                            <div className="author-img">
-                              <img
-                                src="assets/img/home2/testi-author-02.png"
-                                alt=""
-                              />
-                            </div>
-                            <div className="content">
-                              <h6>Daniel Scoot</h6>
-                              <span>CEO At astra.com</span>
-                            </div>
-                          </div>
-                          <div className="logo">
-                            <img
-                              src="assets/img/home1/icon/testimonial-card-logo3.svg"
-                              alt=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className="swiper-slide">
-                      <div className="testimonial-card3 style-2">
-                        <span>Great Consulting!</span>
-                        <p>
-                          “The line's length and style can be changed to better
-                          fit your document's general layout and style. Stars,
-                          dashes, or even a graphical element are some other
-                          divider alternatives.”
-                        </p>
-                        <div className="author-and-logo-area">
-                          <div className="author-area">
-                            <div className="author-img">
-                              <img
-                                src="assets/img/home2/testi-author-03.png"
-                                alt=""
-                              />
-                            </div>
-                            <div className="content">
-                              <h6>Flurance Miyagi</h6>
-                              <span>CEO At astra.com</span>
-                            </div>
-                          </div>
-                          <div className="logo">
-                            <img
-                              src="assets/img/home1/icon/testimonial-card-logo4.svg"
-                              alt=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
+
+                
                   </div>
+
+                                  )})}
                 </Swiper>
               </div>
             </div>
