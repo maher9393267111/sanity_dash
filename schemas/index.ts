@@ -13,6 +13,7 @@ import Tag from './tag'
  import { workprocess } from './workProcess'
  import { HomeApproach } from './homeApproach'
  import {clientcomments} from './clientsComments'
+ import caseStudy from './caseStudy'
 export const schemaTypes = [
     
     homebanner,
@@ -22,4 +23,5 @@ export const schemaTypes = [
      workprocess,
      HomeApproach,
      clientcomments,
+     caseStudy,
     post, author, category, blockContent ,pageType ,heroType ,designType]

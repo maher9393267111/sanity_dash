@@ -17,9 +17,35 @@ export const metadata = {
     icon: "/assets/img/sm-logo.svg",
   },
 };
-const HomePage = async () => {
-  const blogs = await client.fetch(query);
+
+interface Props { 
+  searchParams:{
+   
+    category?:string
+    tag?: any
+  }
+}
+
+
+
+
+const HomePage = async ({searchParams} : Props) => {
+  const { category ,tag} = searchParams
+
+
+  const productFilter = `_type == "post"`
+  const categoryFilter = category ? `&& "${category}" in categories[]->title ` :""
+  const tagFilter = tag ? `&& "${tag}" in tags[]->title ` :""
+  const filter = `*[${productFilter}${categoryFilter}${tagFilter}]`
+
+  const blogs = await client.fetch(groq`${filter} {
+  ...
+  }| order(_createdAt desc)`); ;
   console.log(blogs)
+//?category=development
+
+
+
 
   return (
     <>

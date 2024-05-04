@@ -97,6 +97,18 @@ const clientsquery = groq`
 `;
 
 
+
+const casestudyquery = groq`
+  *[_type=='casestudy'] {
+    ...
+    
+    
+   
+  } | order(_createdAt desc)
+`;
+
+
+
 export const metadata = {
   icons: {
     icon: "/assets/img/sm-logo.svg",
