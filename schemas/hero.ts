@@ -18,7 +18,8 @@ export const heroType = defineType({
       name: "tagline",
       type: "string",
     }),
-    defineField({
+    defineField
+    ({
       name: "image",
       type: "image",
       options: { hotspot: true },
