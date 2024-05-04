@@ -12,6 +12,26 @@ const query = groq`
   } | order(_createdAt desc)
 `;
 
+
+const catsquery = groq`
+  *[_type=='category'] {
+    ...,
+    
+  } | order(_createdAt desc)
+`;
+
+
+
+const tagsquery = groq`
+  *[_type=='tag'] {
+    ...,
+ 
+  } | order(_createdAt desc)
+`;
+
+
+
+
 export const metadata = {
   icons: {
     icon: "/assets/img/sm-logo.svg",
@@ -41,6 +61,12 @@ const HomePage = async ({searchParams} : Props) => {
   const blogs = await client.fetch(groq`${filter} {
   ...
   }| order(_createdAt desc)`); ;
+
+
+  const catsData = await client.fetch(catsquery);
+  const tagsData = await client.fetch(tagsquery);
+
+
   console.log(blogs)
 //?category=development
 
@@ -49,7 +75,7 @@ const HomePage = async ({searchParams} : Props) => {
 
   return (
     <>
-      <MainBlogs blogs={blogs} />
+      <MainBlogs tagsData={tagsData} catsData={catsData} blogs={blogs} />
     </>
   );
 };
