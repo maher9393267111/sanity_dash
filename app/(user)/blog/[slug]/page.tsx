@@ -1,10 +1,9 @@
 import { groq } from 'next-sanity';
 import Image from 'next/image';
 import { client } from '../../../../lib/sanity.client';
-import urlFor from '../../../../lib/urlFor';
-import { PortableText} from '@portabletext/react';
-import { RichTextComponents } from '../../../../components/RichTextComponents';
+
  import { Post } from '../../../../typings';
+ import MainBlogDetails from './blogDetailsMain'
 
 type Props = {
   params: {
@@ -16,25 +15,28 @@ type Props = {
   const query = groq`*[_type == "post"][slug.current == $slug][0] {
   
       ...,      // all the fields
-      author->, //author reference with {}
-      categories[]-> // categories reference with []
+      author->, 
+      categories[]-> ,
+      tags[]-> ,
+
   }`;
 
 const BlogDetailPage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
 
-  const post = await client.fetch(query, { slug }) || [];
+  const blog = await client.fetch(query, { slug }) || [];
 
   return (
     <section
       id="section"
       className="py-24 sm:py-24 relative w-full justify-center flex items-center "
     >
-      {post?.title}
 
-      <div className=' mt-24 mx-12'>
+    <MainBlogDetails blog={blog} />  
+
+      {/* <div className=' mt-24 mx-12'>
       <PortableText value={post?.body} components={RichTextComponents} />
-      </div>
+      </div> */}
 
     </section>
   );
