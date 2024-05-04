@@ -12,6 +12,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 import { structureTool } from 'sanity/structure'
 import { media } from 'sanity-plugin-media'
 import {  mediaAssetSource } from 'sanity-plugin-media'
+import { inlineSvgInput } from '@focus-reactive/sanity-plugin-inline-svg-input'
 
 
 
@@ -30,6 +31,7 @@ export default defineConfig({
   
 
     iconPicker(),
+    inlineSvgInput(),
     deskTool(), visionTool() ,  media()],
 
   schema: {

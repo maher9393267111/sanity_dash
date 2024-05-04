@@ -7,10 +7,11 @@ import { heroType } from './hero'
 import { designType } from './design'
 import { homebanner } from './homeBanner'
 import { homeSectionOne } from './homeSectionOne'
- import { homeSectionOneFeatures } from './homeSectionOneFeatures'
+//  import { homeSectionOneFeatures } from './homeSectionOneFeatures'
+ import { Service } from './service'
 export const schemaTypes = [
     
     homebanner,
     homeSectionOne,
-     homeSectionOneFeatures,
+     Service,
     post, author, category, blockContent ,pageType ,heroType ,designType]

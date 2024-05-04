@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@focus-reactive/sanity-plugin-inline-svg-input': ^1.0.1
   '@headlessui/react': ^1.7.4
   '@heroicons/react': ^2.0.13
   '@next/font': ^14.2.3
@@ -17,6 +18,7 @@ specifiers:
   aos: ^2.3.4
   autoprefixer: ^10.4.13
   bootstrap: ^5.3.2
+  dompurify: ^3.1.2
   eslint: 8.28.0
   eslint-config-next: 13.0.4
   gsap: ^3.12.5
@@ -47,6 +49,7 @@ specifiers:
   yet-another-react-lightbox: ^3.16.0
 
 dependencies:
+  '@focus-reactive/sanity-plugin-inline-svg-input': 1.0.1_omfeijdhrmmxvmdvgb7qd3zkmq
   '@headlessui/react': 1.7.19_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.1.3_react@18.2.0
   '@next/font': 14.2.3_next@13.0.4
@@ -59,6 +62,7 @@ dependencies:
   animate.css: 4.1.1
   aos: 2.3.4
   bootstrap: 5.3.3
+  dompurify: 3.1.2
   gsap: 3.12.5
   jquery: 3.7.1
   lucide-react: 0.376.0_react@18.2.0
@@ -2196,6 +2200,25 @@ packages:
 
   /@floating-ui/utils/0.2.2:
     resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
+    dev: false
+
+  /@focus-reactive/sanity-plugin-inline-svg-input/1.0.1_omfeijdhrmmxvmdvgb7qd3zkmq:
+    resolution: {integrity: sha512-xg2jfLqwOSms6DJcxloxPRNEElZ1c0ExxQuKOBH68okPtlbWabao90AFfSUOzjPGkoyKBSJj76QTe8Zl59YMmg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@sanity/ui': ^1
+      react: ^18
+      sanity: ^3
+      styled-components: ^5 || ^6
+    dependencies:
+      '@sanity/incompatible-plugin': 1.0.4_biqbaboplfbrettd7655fr4n2y
+      '@sanity/ui': 1.9.3_unymcpxz7r7pf6ojhcppboh42y
+      dompurify: 3.1.2
+      react: 18.2.0
+      sanity: 3.40.0_62mavgdswpboiba2adbnf7xywy
+      styled-components: 6.1.8_biqbaboplfbrettd7655fr4n2y
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /@headlessui/react/1.7.19_biqbaboplfbrettd7655fr4n2y:
@@ -4875,6 +4898,10 @@ packages:
 
   /dom-walk/0.1.2:
     resolution: {integrity: sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==}
+    dev: false
+
+  /dompurify/3.1.2:
+    resolution: {integrity: sha512-hLGGBI1tw5N8qTELr3blKjAML/LY4ANxksbS612UiJyDfyf/2D092Pvm+S7pmeTGJRqvlJkFzBoHBQKgQlOQVg==}
     dev: false
 
   /dot-prop/5.3.0:

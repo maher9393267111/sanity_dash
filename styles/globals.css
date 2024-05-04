@@ -13,6 +13,11 @@ body {
 }
 
 
+svg{
+  width:40px !important;
+  height:40px !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;

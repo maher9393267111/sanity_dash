@@ -1,3 +1,5 @@
+
+
 import Image from 'next/image';
 import Link from 'next/link';
 import urlFor  from '../lib/urlFor';
@@ -6,14 +8,14 @@ export const RichTextComponents = {
     types:{
         image: ({ value }: any) => {
             return (
-                <div className='relative w-full m-10 mx-auto h-96'>
-                    <Image
+                <div className='relativ !w-[400px] m-10 mx-auto h-[400px]'>
+                    <img
                         className='object-contain'
                         src={urlFor(value).url()}
-                        fill
+                        
                         alt="Blog Content Image"
-                        priority
-                        quality={100}
+                    
+                        
                     />
                 </div>
             );

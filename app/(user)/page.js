@@ -48,6 +48,16 @@ const onequery = groq`
 `;
 
 
+const servicesquery = groq`
+  *[_type=='service'] {
+    ...
+    
+    
+   
+  } | order(_createdAt desc)
+`;
+
+
 
 
 
@@ -61,8 +71,9 @@ const HomePage = async () => {
   const posts = await client.fetch(query);
   const homebannerData = await client.fetch(bannerquery);
   const sectionOneData = await client.fetch(onequery);
+  const servicesData = await client.fetch(servicesquery);
 
-console.log(sectionOneData[0])
+console.log(servicesData)
 
   return (
     <>
@@ -71,7 +82,7 @@ console.log(sectionOneData[0])
       <Home1Banner data={homebannerData[0]} />
       <Home1BannerMarquee />
       <Home1About data={sectionOneData[0]} />
-      <Home1Solution />
+      <Home1Solution data={servicesData} />
       <Home1Portfolio />
       <Home1WorkProcess />
       <BannerWithCaseStudySlider />

@@ -31,6 +31,11 @@ const BlogDetailPage = async ({ params }: { params: { slug: string } }) => {
       className="py-24 sm:py-24 relative w-full justify-center flex items-center "
     >
       {post?.title}
+
+      <div className=' mt-24 mx-12'>
+      <PortableText value={post?.body} components={RichTextComponents} />
+      </div>
+
     </section>
   );
 };
