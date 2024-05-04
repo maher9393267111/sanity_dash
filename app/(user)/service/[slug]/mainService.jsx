@@ -132,7 +132,7 @@ return (
 
     <Home5Workprocess steps={data?.steps} />
 
-    <div className="service-details-feature-section mb-120">
+    {/* <div className="service-details-feature-section mb-120">
       <div className="container">
         <div className="row">
           <div className="col-lg-6">
@@ -470,7 +470,7 @@ return (
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
   </MainLayout>
   )
 }

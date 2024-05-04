@@ -93,7 +93,11 @@ const Home5Workprocess = ({steps}) => {
             <div className="row">
               <div className="col-lg-12">
                 <Swiper {...settings} className="swiper home2-process-slider">
-                  <div className="swiper-wrapper">
+                           
+                {steps?.map((item, index) => {
+                  
+                  return (
+                  <div key={index} className="swiper-wrapper">
                     <SwiperSlide
                       className="swiper-slide wow animate fadeInDown"
                       data-wow-delay="200ms"
@@ -103,15 +107,13 @@ const Home5Workprocess = ({steps}) => {
                         <div className="step">
                           <div className="number">
                             <h6>Step</h6>
-                            <span>01</span>
+                            <span>{index}</span>
                           </div>
                         </div>
                         <div className="content">
-                          <h4>Client Consultation</h4>
+                          <h4>{item?.title}</h4>
                           <p>
-                            Sed accumsan sem cursus luctus porta. amem Phasellu
-                            du enim, efficitur quis velit ac, fringilla posuere
-                            leo fusci.
+                        {item?.desc}
                           </p>
                         </div>
                       </div>
@@ -119,6 +121,8 @@ const Home5Workprocess = ({steps}) => {
 
                     
                   </div>
+
+                  )})}
                 </Swiper>
 
 

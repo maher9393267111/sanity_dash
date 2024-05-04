@@ -1,6 +1,6 @@
 import { DocumentTextIcon } from "@sanity/icons";
 import { defineField, defineType , defineArrayMember } from "sanity";
-import { preview } from "sanity-plugin-icon-picker";
+// import { preview } from "sanity-plugin-icon-picker";
 
 export const Service = defineType({
   name: "service",

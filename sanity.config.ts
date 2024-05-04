@@ -30,7 +30,7 @@ export default defineConfig({
 
   
 
-    iconPicker(),
+    // iconPicker(),
     // inlineSvgInput(),
     deskTool(), visionTool() ,  media()],
 
