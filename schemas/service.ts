@@ -50,7 +50,7 @@ export const Service = defineType({
   
     
 
-      defineField({ name: 'sidebarIcon', type: 'inlineSvg' }),
+    //   defineField({ name: 'sidebarIcon', type: 'inlineSvg' }),
 
 
 

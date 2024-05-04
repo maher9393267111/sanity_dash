@@ -9,7 +9,7 @@ import SwiperCore, {
 } from "swiper";
 SwiperCore.use([Autoplay, EffectFade, Navigation, Pagination]);
 
-const Home5Workprocess = () => {
+const Home5Workprocess = ({steps}) => {
   const settings = useMemo(() => {
     return {
       slidesPerView: "auto",
@@ -116,92 +116,14 @@ const Home5Workprocess = () => {
                         </div>
                       </div>
                     </SwiperSlide>
-                    <SwiperSlide
-                      className="swiper-slide wow animate fadeInDown"
-                      data-wow-delay="400ms"
-                      data-wow-duration="1500ms"
-                    >
-                      <div className="single-process">
-                        <div className="step">
-                          <div className="number">
-                            <h6>Step</h6>
-                            <span>02</span>
-                          </div>
-                        </div>
-                        <div className="content">
-                          <h4>Strategy Development</h4>
-                          <p>
-                            Sed accumsan sem cursus luctus porta. amem Phasellu
-                            du enim, efficitur quis velit ac, fringilla posuere
-                            leo fusci.
-                          </p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide
-                      className="swiper-slide wow animate fadeInDown"
-                      data-wow-delay="600ms"
-                      data-wow-duration="1500ms"
-                    >
-                      <div className="single-process">
-                        <div className="step">
-                          <div className="number">
-                            <h6>Step</h6>
-                            <span>03</span>
-                          </div>
-                        </div>
-                        <div className="content">
-                          <h4>Market Research</h4>
-                          <p>
-                            Sed accumsan sem cursus luctus porta. amem Phasellu
-                            du enim, efficitur quis velit ac, fringilla posuere
-                            leo fusci.
-                          </p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide
-                      className="swiper-slide wow animate fadeInDown"
-                      data-wow-delay="800ms"
-                      data-wow-duration="1500ms"
-                    >
-                      <div className="single-process">
-                        <div className="step">
-                          <div className="number">
-                            <h6>Step</h6>
-                            <span>04</span>
-                          </div>
-                        </div>
-                        <div className="content">
-                          <h4>Campaign Planning</h4>
-                          <p>
-                            Sed accumsan sem cursus luctus porta. amem Phasellu
-                            du enim, efficitur quis velit ac, fringilla posuere
-                            leo fusci.
-                          </p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className="swiper-slide">
-                      <div className="single-process">
-                        <div className="step">
-                          <div className="number">
-                            <h6>Step</h6>
-                            <span>05</span>
-                          </div>
-                        </div>
-                        <div className="content">
-                          <h4>Campaign Planning</h4>
-                          <p>
-                            Sed accumsan sem cursus luctus porta. amem Phasellu
-                            du enim, efficitur quis velit ac, fringilla posuere
-                            leo fusci.
-                          </p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
+
+                    
                   </div>
                 </Swiper>
+
+
+
+
                 <div className="slider-btn-area">
                   <div className="slider-btn home2-process-prev">
                     <i className="bi bi-arrow-left" />

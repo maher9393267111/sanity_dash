@@ -88,7 +88,7 @@ export default function mainService({data}) {
               <div className="faq-content">
                 <div className="accordion" id="accordionTravel">
 
-                {data?.list?.map((acc, index) => {
+                {data?.accordion?.map((acc, index) => {
 return (
                   <div
                   key={index}
@@ -103,7 +103,8 @@ return (
                         aria-expanded="true"
                         aria-controls="faqcollapseOne"
                       >
-                        01. What is Task Management and how does it work?
+                        
+                        {acc?.question}
                       </button>
                     </h2>
                     <div
@@ -113,10 +114,7 @@ return (
                       data-bs-parent="#accordionTravel"
                     >
                       <div className="accordion-body">
-                        Aptent taciti sociosqu ad litora torquent per conubia
-                        nostra, per inci only Integer purus onthis felis non
-                        aliquam.Mauris nec just vitae ann auctor tol euismod
-                        sit amet non ipsul growing this
+                      {acc.answer}
                       </div>
                     </div>
                   </div>
@@ -132,7 +130,7 @@ return (
       </div>
     </div>
 
-    <Home5Workprocess />
+    <Home5Workprocess steps={data?.steps} />
 
     <div className="service-details-feature-section mb-120">
       <div className="container">
