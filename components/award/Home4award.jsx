@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect } from "react";
+import urlFor from "../../lib/urlFor";
 
-const Home4award = () => {
+const Home4award = ({data}) => {
   const followImageCursor = (event, serviceImgItem) => {
     const contentBox = serviceImgItem.getBoundingClientRect();
     const dx = event.clientX - contentBox.x;
@@ -50,10 +51,10 @@ const Home4award = () => {
                         <circle cx={5} cy={5} r={5} />
                       </g>
                     </svg>
-                    Our Award Time
+                    {data?.heading}
                   </span>
                   <h2>
-                    Celebrating Zenfy's <span>Award-Winning </span>Excellence.
+                    {data?.title}
                   </h2>
                 </div>
                 <Link href="/about" className="details-button">
@@ -127,15 +128,21 @@ const Home4award = () => {
             </div>
             <div className="col-lg-7">
               <div className="sevices-wrap2">
+
+
+              {data?.awardslist?.map((item, index) => {
+return (
+
                 <div
+                key={index}
                   className="single-services wow animate fadeInDown"
                   data-wow-delay="200ms"
                   data-wow-duration="1500ms"
                 >
                   <div className="content">
-                    <span>2024</span>
-                    <h5>Innovation Ignition Award</h5>
-                    <p>Site Of The Day</p>
+                    <span>{item?.time}</span>
+                    <h5>{item?.title}</h5>
+                    {/* <p>Site Of The Day</p> */}
                   </div>
                   <Link className="explore-btn" href="/about">
                     <svg
@@ -152,93 +159,14 @@ const Home4award = () => {
                     </svg>
                   </Link>
                   <div className="services-img">
-                    <img src="assets/img/home4/award-img1.jpg" alt="" />
+                    <img 
+                      src={urlFor(item?.image).url()} 
+                    alt="" />
                   </div>
                 </div>
-                <div
-                  className="single-services wow animate fadeInDown"
-                  data-wow-delay="400ms"
-                  data-wow-duration="1500ms"
-                >
-                  <div className="content">
-                    <span>2024</span>
-                    <h5>CSS Design Award</h5>
-                    <p>Site Of The Month</p>
-                  </div>
-                  <Link className="explore-btn" href="/about">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={16}
-                      height={16}
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M13.582 1.41649L0 14.9978L1.00217 16L14.5835 2.41795L14.5835 11.8086H16L16 0L4.1914 0V1.41649L13.582 1.41649Z"
-                      />
-                    </svg>
-                  </Link>
-                  <div className="services-img">
-                    <img src="assets/img/home4/award-img2.jpg" alt="" />
-                  </div>
-                </div>
-                <div
-                  className="single-services wow animate fadeInDown"
-                  data-wow-delay="600ms"
-                  data-wow-duration="1500ms"
-                >
-                  <div className="content">
-                    <span>2024</span>
-                    <h5>Masterpiece Maker</h5>
-                    <p>Awards Jury 2024</p>
-                  </div>
-                  <Link className="explore-btn" href="/about">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={16}
-                      height={16}
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M13.582 1.41649L0 14.9978L1.00217 16L14.5835 2.41795L14.5835 11.8086H16L16 0L4.1914 0V1.41649L13.582 1.41649Z"
-                      />
-                    </svg>
-                  </Link>
-                  <div className="services-img">
-                    <img src="assets/img/home4/award-img3.jpg" alt="" />
-                  </div>
-                </div>
-                <div
-                  className="single-services wow animate fadeInDown"
-                  data-wow-delay="800ms"
-                  data-wow-duration="1500ms"
-                >
-                  <div className="content">
-                    <span>2024</span>
-                    <h5>Alchemy Achievement</h5>
-                    <p>Site Of The Day</p>
-                  </div>
-                  <Link className="explore-btn" href="/about">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={16}
-                      height={16}
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M13.582 1.41649L0 14.9978L1.00217 16L14.5835 2.41795L14.5835 11.8086H16L16 0L4.1914 0V1.41649L13.582 1.41649Z"
-                      />
-                    </svg>
-                  </Link>
-                  <div className="services-img">
-                    <img src="assets/img/home4/award-img4.jpg" alt="" />
-                  </div>
-                </div>
+
+)})}
+               
               </div>
             </div>
           </div>

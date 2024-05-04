@@ -47,6 +47,24 @@ const stepsquery = groq`
   } | order(_createdAt desc)
 `;
 
+const discoverquery = groq`
+  *[_type=='aboutDiscover'] {
+    ...
+    
+   
+  } | order(_createdAt desc)
+`;
+
+
+const awardsquery = groq`
+  *[_type=='aboutAwards'] {
+    ...
+    
+   
+  } | order(_createdAt desc)
+`;
+
+
 
 export const metadata = {
   icons: {
@@ -57,9 +75,10 @@ const AboutPage = async () => {
   const aboutOneData = await client.fetch(query);
   const partnersData = await client.fetch(partnersquery);
   const stepsData = await client.fetch(stepsquery);
- 
+  const discoverData = await client.fetch(discoverquery);
+  const awardsData = await client.fetch(awardsquery);
 
-console.log(aboutOneData[0])
+console.log(discoverData[0])
 
   return (
     <>
@@ -68,6 +87,8 @@ console.log(aboutOneData[0])
      aboutOneData={aboutOneData[0]}
      steps={stepsData}
      partners ={partnersData}
+     awards={awardsData[0]}
+     discover ={discoverData[0]}
      />
   
     </>

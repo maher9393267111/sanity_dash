@@ -19,7 +19,7 @@ import Link from "next/link";
 import useWow from "../../../hooks/useWow";
 SwiperCore.use([Autoplay, EffectFade, Navigation, Pagination]);
 
-const AboutpageMain = ({ aboutOneData ,steps  , partners}) => {
+const AboutpageMain = ({ aboutOneData ,steps  , partners ,awards ,discover}) => {
     console.log(">>>>>>>>>>" ,aboutOneData?.heading)
   useWow();
   const settings = useMemo(() => {
@@ -411,9 +411,9 @@ return (
         </div>
       </div>
 
-      <Home5whyChoose />
+      <Home5whyChoose data={discover} />
 
-      <Home4award />
+      <Home4award data={awards} />
 
       {/* <Home5Team />
 
