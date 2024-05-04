@@ -28,6 +28,25 @@ const bannerquery = groq`
 
 
 
+//partners
+
+
+const partnersquery = groq`
+  *[_type=='partners'] {
+    ...
+    
+   
+  } | order(_createdAt desc)
+`;
+
+const stepsquery = groq`
+  *[_type=='aboutSteps'] {
+    ...
+    
+   
+  } | order(_createdAt desc)
+`;
+
 
 export const metadata = {
   icons: {
@@ -36,8 +55,8 @@ export const metadata = {
 }
 const AboutPage = async () => {
   const aboutOneData = await client.fetch(query);
-  const homebannerData = await client.fetch(bannerquery);
- 
+  const partnersData = await client.fetch(partnersquery);
+  const stepsData = await client.fetch(stepsquery);
  
 
 console.log(aboutOneData[0])
@@ -45,7 +64,11 @@ console.log(aboutOneData[0])
   return (
     <>
     
-    <AboutOneMAin aboutOneData={aboutOneData[0]}/>
+    <AboutOneMAin
+     aboutOneData={aboutOneData[0]}
+     steps={stepsData}
+     partners ={partnersData}
+     />
   
     </>
   );

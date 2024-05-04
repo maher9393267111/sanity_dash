@@ -15,6 +15,8 @@ import Tag from './tag'
  import {clientcomments} from './clientsComments'
  import caseStudy from './caseStudy'
  import { AboutOne } from './aboutOne'
+ import { Partners } from './partners'
+ import { AboutSteps } from './aboutSteps'
 export const schemaTypes = [
     
     homebanner,
@@ -26,4 +28,6 @@ export const schemaTypes = [
      clientcomments,
      caseStudy,
      AboutOne,
+     AboutSteps,
+     Partners,
     post, author, category, blockContent ,pageType ,heroType ,designType]
