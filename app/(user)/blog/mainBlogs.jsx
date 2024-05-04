@@ -5,7 +5,7 @@ import Link from "next/link";
 import urlFor from '../../../lib/urlFor';
 
 
-const Blogpage = ({blogs ,catsData ,tagsData}) => {
+const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData}) => {
   useWow()
   return (
     <MainLayout>
@@ -92,7 +92,7 @@ return (
               data-wow-duration="1500ms"
             >
               <div className="sidebar-area">
-                <div className="single-widget mb-30">
+                {/* <div className="single-widget mb-30">
                   <h5 className="widget-title">Search Here</h5>
                   <form>
                     <div className="search-box">
@@ -102,7 +102,7 @@ return (
                       </button>
                     </div>
                   </form>
-                </div>
+                </div> */}
                 <div className="single-widget mb-30">
                   <h5 className="widget-title">Category</h5>
                   <ul className="category-list">
@@ -127,7 +127,7 @@ return (
                           </svg>
                           {cat?.title}
                         </span>
-                        <span>(20)</span>
+                        <span>({cat?.count})</span>
                       </Link>
                     </li>
 
@@ -160,60 +160,34 @@ return (
 
                 <div className="single-widget mb-30">
                   <h5 className="widget-title">Popular Post </h5>
-                  <div className="recent-post-widget mb-20">
+                  {blogs?.map((post, index) => {
+
+                    return (
+                  <div key={index} className="recent-post-widget mb-20">
                     <div className="recent-post-img">
-                      <Link href="/blog/blog-details">
+                      <Link 
+                      href={`/blog/${post?.slug.current}`} 
+                      >
                         <img
-                          src="/assets/img/innerpage/popular-post-img1.png"
+                          src={urlFor(post.mainImage).url()} 
                           alt=""
                         />
                       </Link>
                     </div>
                     <div className="recent-post-content">
-                      <Link href="/blog">20 January, 2024</Link>
+                      <Link 
+                    href={`/blog/${post?.slug.current}`} 
+                      
+                      >20 January, 2024</Link>
                       <h6>
-                        <Link href="/blog/blog-details">
+                        <Link href={`/blog/${post?.slug.current}`} >
                           Looking Inspiration Traveling The World.
                         </Link>
                       </h6>
                     </div>
                   </div>
-                  <div className="recent-post-widget mb-20">
-                    <div className="recent-post-img">
-                      <Link href="/blog/blog-details">
-                        <img
-                          src="/assets/img/innerpage/popular-post-img2.png"
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                    <div className="recent-post-content">
-                      <Link href="/blog">12 January, 2024</Link>
-                      <h6>
-                        <Link href="/blog/blog-details">
-                          Challenges creating a multi-brand system.
-                        </Link>
-                      </h6>
-                    </div>
-                  </div>
-                  <div className="recent-post-widget mb-20">
-                    <div className="recent-post-img">
-                      <Link href="/blog/blog-details">
-                        <img
-                          src="/assets/img/innerpage/popular-post-img3.png"
-                          alt=""
-                        />
-                      </Link>
-                    </div>
-                    <div className="recent-post-content">
-                      <Link href="/blog">04 January, 2024</Link>
-                      <h6>
-                        <Link href="/blog/blog-details">
-                          Decoding the Cloud And Deep Dive Creative.
-                        </Link>
-                      </h6>
-                    </div>
-                  </div>
+                    )})}
+                
                 </div>
 
               

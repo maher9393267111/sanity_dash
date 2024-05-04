@@ -13,16 +13,36 @@ const query = groq`
 `;
 
 
-const catsquery = groq`
-  *[_type=='category'] {
+
+const nepostsquery = groq`
+  *[_type=='post'] {
     ...,
-    
-  } | order(_createdAt desc)
+    author->,
+    categories[]->
+  } | order(_createdAt desc) [0...3]
 `;
 
 
 
-const tagsquery = groq`
+
+const catsquery = 
+groq`*[_type == "category"] {
+  ...,
+  "count": count(*[_type == "post" && references(^._id)])
+} | order(count desc) [0...5]`;
+
+// groq`
+//   *[_type=='category'] {
+//     ...,
+    
+//   } | order(_createdAt desc)
+// `;
+
+
+
+const tagsquery = 
+
+groq`
   *[_type=='tag'] {
     ...,
  
@@ -62,12 +82,12 @@ const HomePage = async ({searchParams} : Props) => {
   ...
   }| order(_createdAt desc)`); ;
 
-
+  const newpostsData = await client.fetch(nepostsquery);
   const catsData = await client.fetch(catsquery);
   const tagsData = await client.fetch(tagsquery);
 
 
-  console.log(blogs)
+  console.log(catsData)
 //?category=development
 
 
@@ -75,7 +95,7 @@ const HomePage = async ({searchParams} : Props) => {
 
   return (
     <>
-      <MainBlogs tagsData={tagsData} catsData={catsData} blogs={blogs} />
+      <MainBlogs newpostsData={newpostsData} tagsData={tagsData} catsData={catsData} blogs={blogs} />
     </>
   );
 };
