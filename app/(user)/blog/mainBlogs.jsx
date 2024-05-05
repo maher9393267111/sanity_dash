@@ -6,11 +6,11 @@ import urlFor from '../../../lib/urlFor';
 import { useRouter } from "next/navigation";
 
 
-const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData ,params}) => {
+const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData }) => {
   useWow()
 
 
-  console.log("BLOGSSSSSSSS????" ,params,blogs)
+  console.log("BLOGSSSSSSSS????" ,blogs)
 
 
 const router =useRouter()
@@ -240,6 +240,10 @@ return (
          </div>
         </div>
       </div>
+
+
+
+      
     </MainLayout>
   );
 };

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { groq } from "next-sanity";
 import { client } from "../../../lib/sanity.client";
-
+import MainBlogs from './mainBlogs'
 export default function page() {
   const searchParams = useSearchParams();
   const cat = searchParams.get("category");
@@ -15,47 +15,86 @@ export default function page() {
   const [tags, setTags] = useState([]);
   const [newposts, setNewPosts] = useState([]);
 
+  const nepostsquery = groq`
+  *[_type=='post'] {
+    ...,
+    author->,
+    categories[]->
+  } | order(_createdAt desc) [0...3]
+`;
+
+const catsquery =
+groq`*[_type == "category"] {
+  ...,
+  "count": count(*[_type == "post" && references(^._id)])
+} | order(count desc) [0...5]`;
+
+const tagsquery =
+
+groq`
+  *[_type=='tag'] {
+    ...,
+
+  } | order(_createdAt desc)
+`;
 
 
+//   const newpostsData = await client.fetch(nepostsquery);
+//   const catsData = await client.fetch(catsquery);
+//   const tagsData = await client.fetch(tagsquery);
 
-const getPosts=async()=>{
 
-     const productFilter = `_type == "post"`
-    const categoryFilter = cat ? `&& "${cat}" in categories[]->title ` :""
-    const tagFilter = tag ? `&& "${tag}" in tags[]->title ` :""
-    const filter = `*[${productFilter}${categoryFilter}${tagFilter}]`
-  
+  const getPosts = async () => {
+    const productFilter = `_type == "post"`;
+    const categoryFilter = cat ? `&& "${cat}" in categories[]->title ` : "";
+    const tagFilter = tag ? `&& "${tag}" in tags[]->title ` : "";
+    const filter = `*[${productFilter}${categoryFilter}${tagFilter}]`;
+
     const blogs = await client.fetch(groq`${filter} {
     ...
-    }| order(_createdAt desc)`); ;
+    }| order(_createdAt desc)`);
 
-    setPosts(blogs)
-    console.log(blogs)
+    setPosts(blogs);
+    console.log(blogs);
+  };
 
+
+  const getTags=async()=>{
+    const tagsData = await client.fetch(tagsquery);
+    setTags(tagsData)
+
+  }
+
+
+  const getCats=async()=>{
+    const catsData = await client.fetch(catsquery);
+    setCats(catsData)
+
+  }
+
+
+  const getNewPosts=async()=>{
+    const newData = await client.fetch(nepostsquery);
+    setNewPosts(newData)
+
+  }
+
+  useEffect(() => {
+    getPosts();
+    getCats();
+    getTags();
+    getNewPosts()
+
+  }, [cat, tag]);
+
+  return <div>
+     <MainBlogs  newpostsData={newposts} tagsData={tags} catsData={cats} blogs={posts}/>
+  </div>;
 }
-
-
-
-useEffect(() => {
-  getPosts();
-}, [cat ,tag]);
-
-
-
-  return (
-    <div>
-{posts?.length}
-
-
-    </div>
-  )
-}
-
-
 
 //  "use client"
 //  import React, { useState, useEffect, useMemo } from "react";
- 
+
 //  import { groq } from "next-sanity";
 // import { client } from "../../../lib/sanity.client";
 // import MainBlogs from "./mainBlogs";
@@ -70,40 +109,28 @@ useEffect(() => {
 //   } | order(_createdAt desc)
 // `;
 
-
-
 // const nepostsquery = groq`
 //   *[_type=='post'] {
 //     ...,
 //     author->,
-//     categories[]-> 
+//     categories[]->
 //   } | order(_createdAt desc) [0...3]
 // `;
 
-
-
-
-// const catsquery = 
+// const catsquery =
 // groq`*[_type == "category"] {
 //   ...,
 //   "count": count(*[_type == "post" && references(^._id)])
 // } | order(count desc) [0...5]`;
 
-
-
-
-
-// const tagsquery = 
+// const tagsquery =
 
 // groq`
 //   *[_type=='tag'] {
 //     ...,
- 
+
 //   } | order(_createdAt desc)
 // `;
-
-
-
 
 // export const metadata = {
 //   icons: {
@@ -111,9 +138,9 @@ useEffect(() => {
 //   },
 // };
 
-// interface Props { 
+// interface Props {
 //   searchParams:{
-   
+
 //     category?:string
 //     tag?: any
 //   }
@@ -124,7 +151,6 @@ useEffect(() => {
 
 // ) => {
 //   const { category ,tag} = searchParams
-
 
 //   const productFilter = `_type == "post"`
 //   const categoryFilter = category ? `&& "${category}" in categories[]->title ` :""
@@ -139,7 +165,6 @@ useEffect(() => {
 //   const catsData = await client.fetch(catsquery);
 //   const tagsData = await client.fetch(tagsquery);
 
-
 //   console.log("SSSAAAAAAASSSSSS",catsData , searchParams)
 
 //   return (
@@ -151,4 +176,3 @@ useEffect(() => {
 // };
 
 // export default Blogs;
-
