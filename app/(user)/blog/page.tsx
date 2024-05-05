@@ -2,7 +2,7 @@
 import { client } from "../../../lib/sanity.client";
 import MainBlogs from "./mainBlogs";
 
- export const revalidate = 30;
+//  export const revalidate = 30;
 
 const query = groq`
   *[_type=='post'] {
@@ -78,11 +78,11 @@ const Blogs = async ({searchParams}:Props) => {
   const tagsData = await client.fetch(tagsquery);
 
 
-  console.log(catsData)
+  console.log("SSSAAAAAAASSSSSS",catsData , searchParams)
 
   return (
     <>
-  <MainBlogs newpostsData={newpostsData} tagsData={tagsData} catsData={catsData} blogs={blogs}/>
+  <MainBlogs params={searchParams} newpostsData={newpostsData} tagsData={tagsData} catsData={catsData} blogs={blogs}/>
     </>
   );
 };

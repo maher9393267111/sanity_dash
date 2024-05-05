@@ -6,11 +6,11 @@ import urlFor from '../../../lib/urlFor';
 import { useRouter } from "next/navigation";
 
 
-const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData}) => {
+const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData ,params}) => {
   useWow()
 
 
-  console.log("BLOGSSSSSSSS????" ,blogs)
+  console.log("BLOGSSSSSSSS????" ,params,blogs)
 
 
 const router =useRouter()
