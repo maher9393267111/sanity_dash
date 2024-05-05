@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 import { client } from "../../../lib/sanity.client";
 import MainBlogs from "./mainBlogs";
 
-export const revalidate = 30;
+// export const revalidate = 30;
 
 const query = groq`
   *[_type=='post'] {
