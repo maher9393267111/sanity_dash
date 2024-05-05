@@ -118,7 +118,7 @@ return (
                     className=" !cursor-pointer"
                     key={index}
                     onClick={() => {
-                      router.push(`blog/?category=${cat?.title}`)
+                      router.push(`/blog/?category=${cat?.title}`)
                     }}
                     >
                       {/* <Link href={`/blog?category=${cat?.title}`}> */}
