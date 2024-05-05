@@ -69,7 +69,7 @@ interface Props {
 
 
 
-const HomePage = async ({searchParams} : Props) => {
+export default async function BlogsPages({searchParams} : Props) {
   const { category ,tag} = searchParams
 
 
@@ -100,5 +100,5 @@ const HomePage = async ({searchParams} : Props) => {
   );
 };
 
-export default HomePage;
-export const dynamic = 'force-dynamic'
+// export default HomePage;
+// export const dynamic = 'force-dynamic'

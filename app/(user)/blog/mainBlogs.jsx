@@ -10,6 +10,9 @@ const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData}) => {
   useWow()
 
 
+  console.log("BLOGSSSSSSSS????" ,blogs)
+
+
 const router =useRouter()
 
 
@@ -117,11 +120,11 @@ return (
                     <li
                     className=" !cursor-pointer"
                     key={index}
-                    onClick={() => {
-                      router.replace(`/blog/?category=${cat?.title}`)
-                    }}
+                    // onClick={() => {
+                    //   router.replace(`/blog/?category=${cat?.title}`)
+                    // }}
                     >
-                      {/* <Link href={`/blog?category=${cat?.title}`}> */}
+                       <Link href={`/blog?category=${cat?.title}`}> 
                         <span className=" !cursor-pointer">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +141,7 @@ return (
                           {cat?.title}
                         </span>
                         <span>({cat?.count})</span>
-                      {/* </Link> */}
+                      </Link>
                     </li>
 
                     )})}
