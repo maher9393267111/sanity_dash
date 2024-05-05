@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import breadcrumbData from "../../data/Breadcrumb.json";
+import breadcrumbData from "../../data/mainBreadcrumb.json";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -67,7 +67,7 @@ const Breadcrumb = () => {
                   </ul>
                   <h1>{currentBreadcrumb.pageTitle}</h1>
                 </div>
-                <div className="scroll-down-btn">
+                {/* <div className="scroll-down-btn">
                   <a href={currentBreadcrumb.section_down_scroll}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ const Breadcrumb = () => {
                       <path d="M9.5 0V28M9.5 28C10 24.3333 12.4 17.1 18 17.5M9.5 28C8.5 24.1667 5.4 16.7 1 17.5" />
                     </svg>
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

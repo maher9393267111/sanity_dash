@@ -1,23 +1,18 @@
-"use client"
+"use client";
 import React from "react";
 import { useState } from "react";
-const Home1Contact = ({contact}) => {
-
+const Home1Contact = ({ contact }) => {
   const [state, setstate] = useState({
     name: "",
     phone: "",
 
     email: "",
     message: "",
-    subject:"",
-    company:"",
+    subject: "",
+    company: "",
 
     error: false,
   });
-
-
-
-
 
   const submit = (e) => {
     e.preventDefault();
@@ -31,7 +26,14 @@ const Home1Contact = ({contact}) => {
         ...state,
       };
 
-      if (!state.phone && !state.email && !state.name && !state.company && !state.subject) {
+      if (
+        !state.phone &&
+        !state.email &&
+        !state.name &&
+        !state.company &&
+        !state.subject &&
+        !state.message
+      ) {
         console.log("ERROR CONDITION @@@@@@");
         setstate({ ...state, error: true });
         message.info("يرجا تعبئة كافة الحقول");
@@ -46,14 +48,14 @@ const Home1Contact = ({contact}) => {
 
         setstate({ ...state, error: false });
 
-       // message.success("تم ارسال معلوماتك بنجاح");
+        // message.success("تم ارسال معلوماتك بنجاح");
       }
 
       //console.log("response", res);
 
       //   setPhone("")
     } catch (error) {
-     // message.error("حدث خطأ ما");
+      // message.error("حدث خطأ ما");
       console.log(error);
     }
   };
@@ -62,15 +64,9 @@ const Home1Contact = ({contact}) => {
     setstate({ ...state, [e.target.name]: e.target.value });
   };
 
-
-
-
   return (
-
-
-
     <>
-     <div className="contact-section">
+      <div className="contact-section">
         <div className="container">
           <div className="row g-lg-4 gy-5">
             <div className="col-lg-5">
@@ -104,9 +100,7 @@ const Home1Contact = ({contact}) => {
                     </svg>
                   </span>
                   <h2>{contact?.footertitle}</h2>
-                  <p>
-                    {contact?.footerdesc}
-                  </p>
+                  <p>{contact?.footerdesc}</p>
                 </div>
                 <div
                   className="contact-area wow animate fadeInUp"
@@ -208,72 +202,72 @@ const Home1Contact = ({contact}) => {
               <div className="contact-form-wrap">
                 <div className="contact-form-area">
                   <h3>Your Success Starts Here!</h3>
-                  <form  onSubmit={submit}>
+                  <form onSubmit={submit}>
                     <div className="row">
                       <div className="col-lg-6 mb-20">
                         <div className="form-inner">
                           <label>Full Name</label>
                           <input
-                               name="name"
-                               onChange={inputChange}
-                               value={state.name}
-                          
-                          type="text" />
+                            name="name"
+                            onChange={inputChange}
+                            value={state.name}
+                            type="text"
+                          />
                         </div>
                       </div>
                       <div className="col-lg-6 mb-20">
                         <div className="form-inner">
                           <label>Company / Organization *</label>
                           <input
-                               name="company"
-                               onChange={inputChange}
-                               value={state.company}
-                          
-                          type="text" />
+                            name="company"
+                            onChange={inputChange}
+                            value={state.company}
+                            type="text"
+                          />
                         </div>
                       </div>
                       <div className="col-lg-6 mb-20">
                         <div className="form-inner">
                           <label>Phone *</label>
                           <input
-  name="phone"
-  onChange={inputChange}
-  value={state.phone}
-
-                           type="text" />
+                            name="phone"
+                            onChange={inputChange}
+                            value={state.phone}
+                            type="text"
+                          />
                         </div>
                       </div>
                       <div className="col-lg-6 mb-20">
                         <div className="form-inner">
                           <label>Company email *</label>
                           <input
-                             name="email"
-                             onChange={inputChange}
-                             value={state.email}
-                          
-                          type="email" />
+                            name="email"
+                            onChange={inputChange}
+                            value={state.email}
+                            type="email"
+                          />
                         </div>
                       </div>
                       <div className="col-lg-12 mb-20">
                         <div className="form-inner">
                           <label>Your Subject *</label>
                           <input
-                             name="subject"
-                             onChange={inputChange}
-                             value={state.subject}
-                          
-                          type="text" />
+                            name="subject"
+                            onChange={inputChange}
+                            value={state.subject}
+                            type="text"
+                          />
                         </div>
                       </div>
                       <div className="col-lg-12 mb-30">
                         <div className="form-inner">
                           <label>Message *</label>
                           <textarea
-                             name="message"
-                             onChange={inputChange}
-                             value={state.message}
-                          
-                          defaultValue={""} />
+                            name="message"
+                            onChange={inputChange}
+                            value={state.message}
+                            defaultValue={""}
+                          />
                         </div>
                       </div>
                       <div className="col-lg-12">

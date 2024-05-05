@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useMemo, useReducer, useRef } from "react";
-import navData from "../../data/nav.json";
+import navData from "../../data/mainnav.json";
 import ScrollProgress from "../common/ScrollProgress";
 const initialState = {
   activeMenu: "",

@@ -168,7 +168,7 @@ const HomePage = async () => {
   const casesData = await client.fetch(casesquery);
   const blogsData = await client.fetch(blogsquery);
 
-console.log(blogsData)
+//console.log(blogsData)
 
   return (
     <>

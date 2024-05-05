@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useMemo, useReducer, useRef } from "react";
-import navData from "../../data/nav.json";
+import navData from "../../data/mainnav.json";
 const initialState = {
   activeMenu: "",
   activeSubMenu: "",
@@ -57,6 +57,10 @@ function reducer(state, action) {
 const Header2 = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const headerRef = useRef(null);
+
+  console.log("ASSAS" ,navData)
+
+
 
   const handleScroll = () => {
     const { scrollY } = window;
@@ -134,6 +138,7 @@ const Header2 = () => {
                       }`}
                       onClick={() => toggleMenu("home")}
                     >
+                      
                       <i className="bi bi-plus" />
                     </span>
                     <ul
@@ -142,7 +147,7 @@ const Header2 = () => {
                       }`}
                     >
                       <li>
-                        <a href="#">Light Version</a>
+                        <a href="#">Light VersionA</a>
                         <span
                           className={`dropdown-icon2 two ${
                             state.activeSubMenu === "light" ? "active" : ""
@@ -311,7 +316,11 @@ const Header2 = () => {
                       </li>
                     </ul>
                   </li>
-                  <li>
+
+
+                  {/* <li>
+
+
                     <Link href="/service">Services</Link>
                     <span
                       className={`dropdown-icon2 ${
@@ -393,7 +402,9 @@ const Header2 = () => {
                       </li>
                     </ul>
                   </li>
-                  <li>
+ */}
+
+                  {/* <li>
                     <Link href="/case-study">Case Study</Link>
                     <span
                       className={`dropdown-icon2 ${
@@ -448,8 +459,10 @@ const Header2 = () => {
                         </Link>
                       </li>
                     </ul>
-                  </li>
-                  <li>
+                  </li> */}
+
+
+                  {/* <li>
                     <Link href="/blog">Blog</Link>
                     <span
                       className={`dropdown-icon2 ${
@@ -543,8 +556,11 @@ const Header2 = () => {
                         </Link>
                       </li>
                     </ul>
-                  </li>
-                  <li>
+                  </li> */}
+
+
+
+                  {/* <li>
                     <a href="#">Pages</a>
                     <span
                       className={`dropdown-icon2 ${
@@ -812,7 +828,8 @@ const Header2 = () => {
                         </Link>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
+
                   <li>
                     <Link href="/contact">Contact</Link>
                   </li>
@@ -943,6 +960,7 @@ const Header2 = () => {
                 className="img-fluid"
                 src="/assets/img/logo-light.svg"
               />
+              
             </Link>
             <Link href="/" className="logo-light">
               <img
@@ -984,7 +1002,7 @@ const Header2 = () => {
                         {subMenu.map((subItem, subIndex) => (
                           <li key={subIndex}>
                             <Link legacyBehavior href={subItem.link}>
-                              <a>{subItem.label}</a>
+                              <a>AADFF{subItem.label}</a>
                             </Link>
                             {subItem.icon && subItem.icon ? (
                               <>

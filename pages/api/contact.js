@@ -36,7 +36,11 @@ async function sendEmail({ name, email, phone,company,message,subject }) {
         <p style="font-size:1rem;"><strong> Email: </strong> ${email}</p>
         <p style="font-size:1rem;"><strong> Phone: </strong> ${phone}</p>
         
-        <p style="font-size:1rem;"><strong>Message: </strong> ${company}</p>
+        <p style="font-size:1rem;"><strong>Company: </strong> ${company}</p>
+          
+        <p style="font-size:1rem;"><strong>Message: </strong> ${message}</p>
+          
+        <p style="font-size:1rem;"><strong>Subject: </strong> ${subject}</p>
     
     
     </div>
