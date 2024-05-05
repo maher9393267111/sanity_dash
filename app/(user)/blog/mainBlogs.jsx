@@ -3,10 +3,16 @@ import MainLayout from "../../../components/layout/MainLayout";
 import useWow from "../../../hooks/useWow";
 import Link from "next/link";
 import urlFor from '../../../lib/urlFor';
+import { useRouter } from "next/navigation";
 
 
 const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData}) => {
   useWow()
+
+
+const router =useRouter()
+
+
   return (
     <MainLayout>
         
@@ -109,10 +115,14 @@ return (
                   {catsData?.map((cat, index) => {
                     return (
                     <li
+                    className=" !cursor-pointer"
                     key={index}
+                    onClick={() => {
+                      router.push(`blog/?category=${cat?.title}`)
+                    }}
                     >
-                      <Link href={`/blog?category=${cat?.title}`}>
-                        <span>
+                      {/* <Link href={`/blog?category=${cat?.title}`}> */}
+                        <span className=" !cursor-pointer">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width={13}
@@ -128,7 +138,7 @@ return (
                           {cat?.title}
                         </span>
                         <span>({cat?.count})</span>
-                      </Link>
+                      {/* </Link> */}
                     </li>
 
                     )})}
