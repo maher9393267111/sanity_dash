@@ -101,3 +101,4 @@ const HomePage = async ({searchParams} : Props) => {
 };
 
 export default HomePage;
+export const dynamic = 'force-dynamic'
