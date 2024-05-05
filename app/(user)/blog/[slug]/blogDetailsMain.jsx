@@ -22,7 +22,7 @@ const BlogDetailsMain = ({blog}) => {
             <div className="col-12">
               <div className="blog-details-thumb">
                 <div className="batch">
-                  <span>{blog.categories[0]?.title}</span>
+                  <span>{blog?.categories[0]?.title}</span>
                 </div>
                 <img
                        src={urlFor(blog.mainImage).url()} 
