@@ -148,6 +148,15 @@ const blogsquery = groq`
 `;
 
 
+const aboutOnequery = groq`
+  *[_type=='aboutOne']{
+    ...,
+    
+  } | order(_createdAt desc)
+`;
+
+
+
 
 export const metadata = {
   icons: {
@@ -158,6 +167,7 @@ const HomePage = async () => {
   const posts = await client.fetch(query);
   const homebannerData = await client.fetch(bannerquery);
   const sectionOneData = await client.fetch(onequery);
+  const sectionOneData2 = await client.fetch(aboutOnequery);
   const servicesData = await client.fetch(servicesquery);
   const workProcessData = await client.fetch(workPorocessquery);
   const approachData = await client.fetch(approachquery);
@@ -176,7 +186,7 @@ const HomePage = async () => {
       <Header1 />
       <Home1Banner data={homebannerData[0]} />
       <Home1BannerMarquee />
-      <Home1About data={sectionOneData[0]} />
+      <Home1About data={sectionOneData2[0]}  />
       <Home1Solution data={servicesData} />
       <Home1WorkProcess data={workProcessData} />
       <Home1Approach data={approachData} />
