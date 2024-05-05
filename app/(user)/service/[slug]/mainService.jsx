@@ -4,12 +4,12 @@ import urlFor from '../../../../lib/urlFor';
 import MainLayout from "../../../../components/layout/MainLayout";
 import Home5Workprocess from "../../../../components/workProcess/Home5Workprocess";
 
-export default function mainService({data}) {
+export default function mainService({data ,contact}) {
 
   console.log("INNNNNNNNNNSASASAS" ,data)
 
   return (
-    <MainLayout>
+    <MainLayout contact={contact}>
     <div
       className="service-details-page pt-120 mb-120"
       id="service-details-section"

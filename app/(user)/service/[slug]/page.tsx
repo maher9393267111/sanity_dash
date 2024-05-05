@@ -25,17 +25,26 @@ type Props = {
      
   }`;
 
+  const contactquery = groq`
+  *[_type=='contact'] {
+    ...,
+    
+    
+  } | order(_createdAt desc)
+`;
+
+
 const ServiceDetailPage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
 
   const service = await client.fetch(query, { slug }) || [];
-
+  const contact = await client.fetch(contactquery);
   
 
   return (
     <div>
 
-<MainService data ={service}/>
+<MainService contact={contact[0]} data ={service}/>
     </div>
   );
 };

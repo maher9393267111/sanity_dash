@@ -1,9 +1,9 @@
 import MainLayout from "../../../components/layout/MainLayout";
 import React from "react";
 
-const FaqPageMain = ({data}) => {
+const FaqPageMain = ({data ,contact}) => {
   return (
-    <MainLayout>
+    <MainLayout contact={contact}>
       <div className="faq-section scroll-margin pt-120 mb-120" id="faq-section">
         <div className="container">
           <div className="row g-4 mb-120">

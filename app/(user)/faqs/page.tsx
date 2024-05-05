@@ -11,6 +11,18 @@ const query = groq`
   } | order(_createdAt desc)
 `;
 
+
+
+const contactquery = groq`
+  *[_type=='contact'] {
+    ...,
+    
+    
+  } | order(_createdAt desc)
+`;
+
+
+
 export const metadata = {
   icons: {
     icon: "/assets/img/sm-logo.svg",
@@ -18,12 +30,12 @@ export const metadata = {
 };
 const FaqsPage = async () => {
   const faqsData = await client.fetch(query);
-
+const contact = await client.fetch(contactquery);
   console.log(faqsData[0]);
 
   return (
     <>
-      <FaqMAin data={faqsData[0]} />
+      <FaqMAin contact={contact[0]} data={faqsData[0]} />
     </>
   );
 };

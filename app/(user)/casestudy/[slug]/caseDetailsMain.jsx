@@ -8,10 +8,10 @@ import { PortableText} from '@portabletext/react';
 import { RichTextComponents } from '../../../../components/RichTextComponents';
 
 
-const  CaseStudyDetails = ({casedata}) => {
+const  CaseStudyDetails = ({casedata ,contact}) => {
   useWow()
   return (
-    <MainLayout>
+    <MainLayout contact={contact}>
       <div
         className="case-study-details-page pt-120 mb-120"
         id="case-details-section"

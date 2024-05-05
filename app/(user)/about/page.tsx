@@ -65,6 +65,16 @@ const awardsquery = groq`
 `;
 
 
+const contactquery = groq`
+  *[_type=='contact'] {
+    ...,
+    
+    
+  } | order(_createdAt desc)
+`;
+
+
+
 
 export const metadata = {
   icons: {

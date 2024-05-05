@@ -18,7 +18,7 @@ const nepostsquery = groq`
   *[_type=='post'] {
     ...,
     author->,
-    categories[]->
+    categories[]-> 
   } | order(_createdAt desc) [0...3]
 `;
 

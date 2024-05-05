@@ -108,6 +108,46 @@ const casestudyquery = groq`
 `;
 
 
+const contactquery = groq`
+  *[_type=='contact'] {
+    ...,
+    
+    
+  } | order(_createdAt desc)
+`;
+
+
+//homeCauseSlider
+const caseInfoquery = groq`
+  *[_type=='homeCasesSlider'] {
+    ...,
+    
+    
+  } | order(_createdAt desc)
+`;
+
+
+const casesquery = groq`
+  *[_type=='casestudy'] {
+    ...,
+    
+    
+  } | order(_createdAt desc)
+  [0...4]
+`;
+
+
+
+const blogsquery = groq`
+  *[_type=='post'] {
+    ...,
+    categories[]-> 
+    
+  } | order(_createdAt desc)
+  [0...3]
+`;
+
+
 
 export const metadata = {
   icons: {
@@ -122,8 +162,13 @@ const HomePage = async () => {
   const workProcessData = await client.fetch(workPorocessquery);
   const approachData = await client.fetch(approachquery);
   const clientsData = await client.fetch(clientsquery);
+  const contact = await client.fetch(contactquery);
+  const caseInfo = await client.fetch(caseInfoquery);
 
-console.log(approachData)
+  const casesData = await client.fetch(casesquery);
+  const blogsData = await client.fetch(blogsquery);
+
+console.log(blogsData)
 
   return (
     <>
@@ -136,16 +181,16 @@ console.log(approachData)
       <Home1WorkProcess data={workProcessData} />
       <Home1Approach data={approachData} />
       <Home1Testimonial data={clientsData} />
-
-
-      <Home1Portfolio />
+      <BannerWithCaseStudySlider caseInfo={caseInfo[0]} casesData={casesData} />
+      <Home1Blog blogsData={blogsData} />
+      <Home1Contact contact={contact[0]} />
+      {/* <Home1Portfolio />
      
       <BannerWithCaseStudySlider />
      
-      <LogoMarquee />
-      
-      <Home1Blog />
-      <Home1Contact />
+      <LogoMarquee /> */}
+    
+     
       <Footer />
     </>
   );

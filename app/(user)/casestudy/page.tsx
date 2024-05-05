@@ -12,11 +12,27 @@ const query = groq`
   } | order(_createdAt desc)
 `;
 
+
+
+const contactquery = groq`
+  *[_type=='contact'] {
+    ...,
+    
+    
+  } | order(_createdAt desc)
+`;
+
+
+
 export const metadata = {
   icons: {
     icon: "/assets/img/sm-logo.svg",
   },
 };
+
+
+
+
 
 interface Props { 
   searchParams:{
@@ -35,6 +51,7 @@ const CasePage = async ({searchParams} : Props) => {
 
 
   const cases = await client.fetch(query);
+  const contact = await client.fetch(contactquery);
   console.log(cases)
 //?category=development
 
@@ -43,7 +60,7 @@ const CasePage = async ({searchParams} : Props) => {
 
   return (
     <>
-      <MainCases cases={cases} />
+      <MainCases contact={contact[0]} cases={cases} />
     </>
   );
 };

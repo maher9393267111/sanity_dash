@@ -5,10 +5,10 @@ import Link from "next/link";
 import React from "react";
 import urlFor from '../../../lib/urlFor';
 
-const CaseStudyPage = ({cases}) => {
+const CaseStudyPage = ({cases ,contact}) => {
   useWow()
   return (
-    <MainLayout>
+    <MainLayout contact={contact}>
       <div
         className="case-study-card-section scroll-margin pt-120 mb-120"
         id="case-study-card-section"
