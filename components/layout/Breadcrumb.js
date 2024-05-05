@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import breadcrumbData from "../../data/mainBreadcrumb.json";
+import breadcrumbData from "../../data/mainBreadCrumb.json";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
