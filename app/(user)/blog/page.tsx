@@ -69,7 +69,7 @@ interface Props {
 
 
 
-export default async function BlogsPages({searchParams} : Props) {
+export default async function BlogsPagess({searchParams} : Props) {
   const { category ,tag} = searchParams
 
 
