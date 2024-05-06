@@ -76,6 +76,7 @@ groq`
   const getNewPosts=async()=>{
     const newData = await client.fetch(nepostsquery);
     setNewPosts(newData)
+    console.log(newposts)
 
   }
 

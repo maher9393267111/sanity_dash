@@ -22,7 +22,7 @@ export default function LegalSearchCard({ data, animationDelay }) {
         className={`absolute inset-0 ${isHovered && "scale-110"
           } transition duration-300 ease-in-out`}
       >
-        <Image   src={urlFor(data.image).url()} fill className="object-cover" alt={heading} priority />
+        <Image   src={urlFor(data?.image).url()} fill className="object-cover" alt={heading} priority />
       </div>
       <div className={`
       

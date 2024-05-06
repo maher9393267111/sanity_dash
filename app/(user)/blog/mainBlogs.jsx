@@ -47,7 +47,16 @@ return (
                   </Link>
                   <Link href={`/blog/${blog?.slug.current}`} className="date">
                     <span>
-                      <strong>15</strong> January
+                      {/* <strong>15</strong> January */}
+                      <stong>
+
+                    
+                      {new Date(blog?._createdAt).toLocaleDateString('en', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
+                        </stong>
                     </span>
                   </Link>
                 </div>
@@ -174,7 +183,7 @@ return (
 
                 <div className="single-widget mb-30">
                   <h5 className="widget-title">Popular Post </h5>
-                  {blogs?.map((post, index) => {
+                  {newpostsData?.map((post, index) => {
 
                     return (
                   <div key={index} className="recent-post-widget mb-20">

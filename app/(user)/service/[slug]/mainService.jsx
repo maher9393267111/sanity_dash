@@ -79,7 +79,7 @@ export default function mainService({data ,contact}) {
             <div className="col-lg-6">
               <div className="service-details-faq-img">
                 <img
-                  src={urlFor(data.image2).url()} 
+                  src={urlFor(data?.image2).url()} 
                   alt=""
                 />
               </div>

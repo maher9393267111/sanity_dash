@@ -1560,7 +1560,7 @@ ul {
   font-size: 17px;
   font-weight: 400;
   line-height: 1.8;
-  margin-bottom: 0;
+  margin-bottom: 12px;
   padding-top: 20px;
 }
 .section-title5.two h2 {
@@ -14765,6 +14765,7 @@ header.style-3 .main-menu > ul li.menu-item-has-children > i {
   max-width: 574px;
   width: 100%;
   margin-left: auto;
+  margin-bottom: 12px;
 }
 
 .industry-card .industry-img {

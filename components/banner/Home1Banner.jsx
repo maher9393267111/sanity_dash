@@ -143,7 +143,7 @@ const Home1Banner = ({data}) => {
                     </SwiperSlide>
                   </div>
                 </Swiper> */}
-                  <video width={600} height={400} src={data.video} autoPlay controls></video>
+                  <video width={600} height={400} src={data?.video} autoPlay controls></video>
               </div>
             </div>
           </div>

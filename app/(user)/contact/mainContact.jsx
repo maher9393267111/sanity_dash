@@ -38,13 +38,20 @@ const ContactPageMain = ({contact}) => {
                 <h2>
                   {contact?.title}
                 </h2>
-                <p>
+                <p className="!mb-6">
                   {contact?.desc}
                 </p>
               </div>
             </div>
           </div>
-          <div className="row g-lg-4 gy-5">
+          <div className="row !mt-6 g-lg-4 gy-5">
+
+<div className=" col-lg-9 row  !mb-4 md:mb-0">
+
+
+<div className="row">
+
+
 
           {contact?.list?.map((item, index) => {
                   
@@ -88,9 +95,15 @@ const ContactPageMain = ({contact}) => {
 
                   )})}
 
+</div>
+
+</div>
+
+
+
 {/* ----map--- */}
             <div
-              className="col-lg-8 wow animate zoomIn"
+              className="col-lg-3 wow animate zoomIn"
               data-wow-delay="400ms"
               data-wow-duration="1500ms"
             >

@@ -56,7 +56,7 @@ const Home1Solution = ({data}) => {
     <div className="row g-4">
 
                    
-    {data.map((item, index) => {
+    {data?.map((item, index) => {
                   
                   return (
 

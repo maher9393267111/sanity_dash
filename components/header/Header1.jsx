@@ -990,7 +990,7 @@ const Header1 = ({data}) => {
           </div>
           <div className="main-menu d-lg-flex d-none">
             <ul className="menu-list">
-              {navData.map((data) => {
+              {navData?.map((data) => {
                 const { id, label, link, icon, subMenu } = data;
                 return (
                   <li
