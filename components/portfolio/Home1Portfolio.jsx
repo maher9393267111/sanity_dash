@@ -8,9 +8,10 @@ import SwiperCore, {
   Pagination,
 } from "swiper";
 import Link from "next/link";
+import urlFor from "../../lib/urlFor";
 SwiperCore.use([Autoplay, EffectFade, Navigation, Pagination]);
 
-const Home1Portfolio = ({showcaseData}) => {
+const Home1Portfolio = ({ showcaseData }) => {
   const settings = useMemo(() => {
     return {
       slidesPerView: "auto",
@@ -104,7 +105,10 @@ const Home1Portfolio = ({showcaseData}) => {
           <div className="row">
             <div className="col-lg-12">
               <Swiper {...settings} className="swiper portfolio-slider">
-                <div className="swiper-wrapper">
+                {/* <div className="swiper-wrapper">
+
+
+    
                   <SwiperSlide className="swiper-slide">
                     <div className="eg-card">
                       <div className="card-img">
@@ -131,137 +135,48 @@ const Home1Portfolio = ({showcaseData}) => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="eg-card">
-                      <div className="card-img">
-                        <img
-                          src="assets/img/home1/portfolio-img-02.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="card-content">
-                        <Link
-                          className="view-btn"
-                          href="/portfolio/portfolio-details"
-                        >
-                          <img src="assets/img/home1/right-arrow.png" alt="" />
-                        </Link>
-                        <div className="catgory-and-title">
-                          <Link href="/portfolio">Resources</Link>
-                          <h5>
-                            <Link href="/portfolio/portfolio-details">
-                              Human Resources Consulting
-                            </Link>
-                          </h5>
+
+
+                  
+                </div> */}
+
+                {showcaseData?.map((item, index) => {
+                  return (
+                    <div key={index} className="swiper-wrapper">
+                      <SwiperSlide className="swiper-slide">
+                        <div className="eg-card">
+                          <div className="card-img">
+                            <img src={urlFor(item?.image).url()} alt="" />
+                          </div>
+                          <div className="card-content">
+                            {/* <Link
+                              className="view-btn"
+                              href="/portfolio/portfolio-details"
+                            > */}
+                              <img
+                              className="view-btn"
+                                src="assets/img/home1/right-arrow.png"
+                                alt=""
+                              />
+                            {/* </Link> */}
+
+                            <div className="catgory-and-title">
+                              {/* <Link href="/"> */}
+                              <p>Marketing</p>
+
+                              {/* </Link> */}
+                              <h5>
+                                {/* <Link href="/"> */}
+                                Management Consulting
+                                {/* </Link> */}
+                              </h5>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      </SwiperSlide>
                     </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="eg-card">
-                      <div className="card-img">
-                        <img
-                          src="assets/img/home1/portfolio-img-03.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="card-content">
-                        <Link
-                          className="view-btn"
-                          href="/portfolio/portfolio-details"
-                        >
-                          <img src="assets/img/home1/right-arrow.png" alt="" />
-                        </Link>
-                        <div className="catgory-and-title">
-                          <Link href="/portfolio">Technology</Link>
-                          <h5>
-                            <Link href="/portfolio/portfolio-details">
-                              IT Consulting
-                            </Link>
-                          </h5>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="eg-card">
-                      <div className="card-img">
-                        <img
-                          src="assets/img/home1/portfolio-img-04.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="card-content">
-                        <Link
-                          className="view-btn"
-                          href="/portfolio/portfolio-details"
-                        >
-                          <img src="assets/img/home1/right-arrow.png" alt="" />
-                        </Link>
-                        <div className="catgory-and-title">
-                          <Link href="/portfolio">Finance</Link>
-                          <h5>
-                            <Link href="/portfolio/portfolio-details">
-                              Finance Consulting
-                            </Link>
-                          </h5>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="eg-card">
-                      <div className="card-img">
-                        <img
-                          src="assets/img/home1/portfolio-img-05.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="card-content">
-                        <Link
-                          className="view-btn"
-                          href="/portfolio/portfolio-details"
-                        >
-                          <img src="assets/img/home1/right-arrow.png" alt="" />
-                        </Link>
-                        <div className="catgory-and-title">
-                          <Link href="/portfolio">Consulting</Link>
-                          <h5>
-                            <Link href="/portfolio/portfolio-details">
-                              Human Resources
-                            </Link>
-                          </h5>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="eg-card">
-                      <div className="card-img">
-                        <img
-                          src="assets/img/home1/portfolio-img-06.jpg"
-                          alt=""
-                        />
-                      </div>
-                      <div className="card-content">
-                        <Link
-                          className="view-btn"
-                          href="/portfolio/portfolio-details"
-                        >
-                          <img src="assets/img/home1/right-arrow.png" alt="" />
-                        </Link>
-                        <div className="catgory-and-title">
-                          <Link href="/portfolio">Health Care</Link>
-                          <h5>
-                            <Link href="/portfolio/portfolio-details">
-                              Health Care Consult
-                            </Link>
-                          </h5>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                </div>
+                  );
+                })}
               </Swiper>
             </div>
           </div>

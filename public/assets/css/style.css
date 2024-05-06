@@ -4633,7 +4633,8 @@ header.style-3 .main-menu > ul li.menu-item-has-children > i {
   transition: 0.5s;
   opacity: 0;
 }
-.eg-card .card-content .catgory-and-title > a {
+
+.eg-card .card-content .catgory-and-title  > p {
   border-radius: 15px;
   border: 1px solid var(--white-color);
   background: transparent;
@@ -4647,9 +4648,38 @@ header.style-3 .main-menu > ul li.menu-item-has-children > i {
   line-height: 1;
   margin-bottom: 13px;
 }
+
+
+/* .eg-card .card-content .catgory-and-title > a {
+  border-radius: 15px;
+  border: 1px solid var(--white-color);
+  background: transparent;
+  display: inline-block;
+  color: var(--white-color);
+  text-align: center;
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 18px;
+  line-height: 1;
+  margin-bottom: 13px;
+} */
+
+
 .eg-card .card-content .catgory-and-title h5 {
   margin-bottom: 0;
+  color: var(--white-color);
+  font-family: var(--font-hankenGrotesk);
+  font-size: 24px;
+  font-weight: 500;
+  transition: 0.35s;
 }
+
+
+.eg-card .card-content .catgory-and-title  h5:hover {
+  color: #CACACA;
+}
+
 .eg-card .card-content .catgory-and-title h5 a {
   color: var(--white-color);
   font-family: var(--font-hankenGrotesk);

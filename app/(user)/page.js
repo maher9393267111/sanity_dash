@@ -200,7 +200,7 @@ const HomePage = async () => {
   const showcaseData = await client.fetch(showcasequery);
 
   //showcasequery 
-console.log(brandsData)
+console.log(showcaseData)
 
   return (
     <>
