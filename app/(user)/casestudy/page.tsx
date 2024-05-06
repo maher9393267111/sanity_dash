@@ -4,6 +4,9 @@ import { client } from "../../../lib/sanity.client";
 
 export const revalidate = 30;
 
+
+
+
 const query = groq`
   *[_type=='casestudy'] {
     ...,
