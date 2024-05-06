@@ -6,7 +6,7 @@ import urlFor from '../../../lib/urlFor';
 import { useRouter } from "next/navigation";
 
 
-const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData }) => {
+const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData ,loadMore }) => {
   useWow()
 
 
@@ -101,7 +101,37 @@ return (
 )})}
 
 </div>
-  
+
+
+{/* <div className="load-me flex justify-center">
+
+
+
+<button className="load-btn text-white !mt-12 !text-center !block" onClick={loadMore}>
+  Load More
+</button>
+
+
+</div> */}
+
+<div className="row mtt !mt-[44px]">
+            <div
+              className="col-lg-12 d-flex justify-content-center wow animate fadeInUp"
+              data-wow-delay="400ms"
+              data-wow-duration="1500ms"
+            >
+              <button onClick={loadMore}  className="load-btn">
+                <span>
+                  Load More
+                  <svg viewBox="0 0 13 20">
+                    <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+
+
 </div>
 
 {/* Sidebar */}

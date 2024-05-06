@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { groq } from "next-sanity";
 import { client } from "../../../lib/sanity.client";
 import MainBlogs from './mainBlogs'
+import { off } from "process";
 export default function page() {
   const searchParams = useSearchParams();
   const cat = searchParams.get("category");
@@ -38,23 +39,50 @@ groq`
   } | order(_createdAt desc)
 `;
 
+const [offset, setOffset] = useState(0);
+const [loading, setLoading] = useState(false);
 
-//   const newpostsData = await client.fetch(nepostsquery);
-//   const catsData = await client.fetch(catsquery);
-//   const tagsData = await client.fetch(tagsquery);
 
+
+
+
+
+
+
+
+
+
+  // const getPosts = async () => {
+  //   const productFilter = `_type == "post"`;
+  //   const categoryFilter = cat ? `&& "${cat}" in categories[]->title ` : "";
+  //   const tagFilter = tag ? `&& "${tag}" in tags[]->title ` : "";
+  //   const filter = `*[${productFilter}${categoryFilter}${tagFilter} ]`;
+
+  //   const blogs = await client.fetch(groq`${filter} {
+  //   ...
+  //   } | order(_createdAt desc) [$offset...$offset + 1]`);
+
+  //   setPosts([...posts, ...blogs]);
+  //   setOffset(offset + 5);
+  //   setLoading(false);
+  //  // setPosts(blogs);
+  //   console.log(blogs);
+  // };
 
   const getPosts = async () => {
     const productFilter = `_type == "post"`;
     const categoryFilter = cat ? `&& "${cat}" in categories[]->title ` : "";
     const tagFilter = tag ? `&& "${tag}" in tags[]->title ` : "";
-    const filter = `*[${productFilter}${categoryFilter}${tagFilter}]`;
-
+    const filter = `*[${productFilter}${categoryFilter}${tagFilter} ]`;
+  
     const blogs = await client.fetch(groq`${filter} {
     ...
-    }| order(_createdAt desc)`);
-
-    setPosts(blogs);
+    } | order(_createdAt desc) [${offset}...${offset + 2}]`);
+  
+    setPosts([...posts, ...blogs]);
+    setOffset(offset + 2);
+    setLoading(false);
+    // setPosts(blogs);
     console.log(blogs);
   };
 
@@ -89,7 +117,10 @@ groq`
   }, [cat, tag]);
 
   return <div>
-     <MainBlogs  newpostsData={newposts} tagsData={tags} catsData={cats} blogs={posts}/>
+     <MainBlogs  newpostsData={newposts} tagsData={tags} catsData={cats} blogs={posts}
+     
+     loadMore={getPosts}
+     />
   </div>;
 }
 
