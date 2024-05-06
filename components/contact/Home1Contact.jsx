@@ -145,7 +145,7 @@ const Home1Contact = ({ contact }) => {
                     <div className="content">
                       <span>To Send Mail</span>
                       <h6>
-                        <a href="mailto:info@example.com">{contact?.email}</a>
+                        <a href={`mailto:${contact?.email}`}>{contact?.email}</a>
                       </h6>
                     </div>
                   </div>

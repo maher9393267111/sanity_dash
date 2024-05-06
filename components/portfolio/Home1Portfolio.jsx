@@ -10,7 +10,7 @@ import SwiperCore, {
 import Link from "next/link";
 SwiperCore.use([Autoplay, EffectFade, Navigation, Pagination]);
 
-const Home1Portfolio = () => {
+const Home1Portfolio = ({showcaseData}) => {
   const settings = useMemo(() => {
     return {
       slidesPerView: "auto",

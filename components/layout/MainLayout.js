@@ -22,7 +22,7 @@ const MainLayout = ({ children , contact }) => {
 
   return (
     <>
-      <Header2 />
+      <Header2 data={contact} />
       <Breadcrumb />
       {children}
 

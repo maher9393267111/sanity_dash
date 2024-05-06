@@ -31,6 +31,14 @@ export const Contact = defineType({
       }),
   
 
+      defineField({
+        name: "footeraddress",
+        type: "string",
+      }),
+  
+
+
+
 
     defineField({
       name: "desc",

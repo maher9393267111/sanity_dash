@@ -127,7 +127,7 @@ const Header3 = () => {
               <div className="sidebar-menu-wrap">
                 <ul className="main-menu">
                   <li>
-                    <Link href="/">Agency </Link>
+                    <Link href="/">Agency5 </Link>
                     <span
                       className={`dropdown-icon2 ${
                         state.activeMenu === "home" ? "active" : ""
@@ -823,7 +823,7 @@ const Header3 = () => {
               <div className="sidebar-contact">
                 <div className="getin-touch-area mb-60">
                   <h4>
-                    Get in Touch
+                    Get in Touchs
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={12}

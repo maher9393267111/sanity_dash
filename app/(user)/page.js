@@ -163,6 +163,15 @@ const brandsquery = groq`
   } | order(_createdAt desc)
 `;
 
+const showcasequery = groq`
+  *[_type=='showCase']{
+    ...,
+    
+  } | order(_createdAt desc)
+`;
+
+
+
 
 
 
@@ -188,12 +197,15 @@ const HomePage = async () => {
   const casesData = await client.fetch(casesquery);
   const blogsData = await client.fetch(blogsquery);
   const brandsData = await client.fetch(brandsquery);
+  const showcaseData = await client.fetch(showcasequery);
+
+  //showcasequery 
 console.log(brandsData)
 
   return (
     <>
     
-      <Header1 />
+      <Header1 data={contact[0]} />
       <Home1Banner data={homebannerData[0]} />
       <Home1BannerMarquee />
       <Home1About data={sectionOneData2[0]}  />
@@ -203,10 +215,11 @@ console.log(brandsData)
       <Home1Testimonial data={clientsData} />
       <BannerWithCaseStudySlider caseInfo={caseInfo[0]} casesData={casesData} />
       <LogoMarquee brandsData={brandsData[0]} />
+      <Home1Portfolio showcaseData={showcaseData} />
       <Home1Blog blogsData={blogsData} />
       <Home1Contact contact={contact[0]} />
      
-      {/* <Home1Portfolio />
+      {/* 
      
       <BannerWithCaseStudySlider />
      
