@@ -14,8 +14,11 @@ type Props = {
 
   const query = groq`*[_type == "casestudy"][slug.current == $slug][0] {
   
-      ...,      // all the fields
+      ...,      
       category->,
+
+      'prev': *[_type == 'casestudy'  && _createdAt < ^._createdAt].slug | order(_createdAt desc)[0],
+      'next': *[_type == 'casestudy' && _createdAt > ^._createdAt].slug | order(_createdAt desc)[0]
       
 
   }`;

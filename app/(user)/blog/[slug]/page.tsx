@@ -19,12 +19,17 @@ type Props = {
       categories[]-> ,
       tags[]-> ,
 
+      'prev': *[_type == 'post'  && _createdAt < ^._createdAt].slug | order(_createdAt desc)[0],
+      'next': *[_type == 'post' && _createdAt > ^._createdAt].slug | order(_createdAt desc)[0]
+  
+
   }`;
 
 const BlogDetailPage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
 
   const blog = await client.fetch(query, { slug }) || [];
+console.log("BLOG" , blog?.prev ,blog?.next)
 
   return (
     <section
