@@ -83,7 +83,7 @@ const Home2Blog = () => {
                           </li>
                         </ul>
                         <div className="blog-comment">
-                          <span>Comment (20)</span>
+                          <span>Comment (21010)</span>
                         </div>
                       </div>
                       <h4>

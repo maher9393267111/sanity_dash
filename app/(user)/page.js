@@ -156,6 +156,16 @@ const aboutOnequery = groq`
 `;
 
 
+const brandsquery = groq`
+  *[_type=='brands']{
+    ...,
+    
+  } | order(_createdAt desc)
+`;
+
+
+
+
 
 
 export const metadata = {
@@ -177,8 +187,8 @@ const HomePage = async () => {
 
   const casesData = await client.fetch(casesquery);
   const blogsData = await client.fetch(blogsquery);
-
-//console.log(blogsData)
+  const brandsData = await client.fetch(brandsquery);
+console.log(brandsData)
 
   return (
     <>
@@ -192,13 +202,15 @@ const HomePage = async () => {
       <Home1Approach data={approachData} />
       <Home1Testimonial data={clientsData} />
       <BannerWithCaseStudySlider caseInfo={caseInfo[0]} casesData={casesData} />
+      <LogoMarquee brandsData={brandsData[0]} />
       <Home1Blog blogsData={blogsData} />
       <Home1Contact contact={contact[0]} />
+     
       {/* <Home1Portfolio />
      
       <BannerWithCaseStudySlider />
      
-      <LogoMarquee /> */}
+      */}
     
      
       <Footer />

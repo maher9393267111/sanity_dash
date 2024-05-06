@@ -1,6 +1,11 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-const LogoMarquee = () => {
+import urlFor from "../../lib/urlFor";
+const LogoMarquee = ({brandsData}) => {
+
+console.log(">>>ASASAS<<<<<" , brandsData)
+
+
   return (
     <div
       className="logo-section mb-110 wow animate fadeInUp"
@@ -15,27 +20,15 @@ const LogoMarquee = () => {
           <div className="logo-area">
             <div className="marquee_text2">
               <Marquee>
-                <a href="#">
-                  <img src="assets/img/home1/company-logo-01.png" alt="" />
-                </a>
-                <a href="#">
-                  <img src="assets/img/home1/company-logo-02.png" alt="" />
-                </a>
-                <a href="#">
-                  <img src="assets/img/home1/company-logo-03.png" alt="" />
-                </a>
-                <a href="#">
-                  <img src="assets/img/home1/company-logo-04.png" alt="" />
-                </a>
-                <a href="#">
-                  <img src="assets/img/home1/company-logo-05.png" alt="" />
-                </a>
-                <a href="#">
-                  <img src="assets/img/home1/company-logo-06.png" alt="" />
-                </a>
-                <a href="#">
-                  <img src="assets/img/home1/company-logo-07.png" alt="" />
-                </a>
+
+              {brandsData?.images?.map((item, index) => {
+                  
+                  return (
+                
+                  <img key={index}      src={urlFor(item)?.url()}  alt="" />
+              
+              
+                  )})}
               </Marquee>
             </div>
           </div>

@@ -84,9 +84,9 @@ return (
                         <Link href="/blog">   {blog?.categories && blog?.categories[0]?.title}</Link>
                       </li>
                     </ul>
-                    <div className="blog-comment">
-                      <span>Comment (20)</span>
-                    </div>
+                    {/* <div className="blog-comment">
+                      <span>Comment (200)</span>
+                    </div> */}
                   </div>
                   <h4>
                     <Link href="/blog/blog-details">

@@ -30,13 +30,13 @@ const router =useRouter()
 
 
 <div className="col-lg-8">
-
+<div className="row g-lg-4 gy-5">
           {blogs?.map((blog, index) => {
 
 return (
             <div
             key={index}
-              className="col-lg-4 col-md-6 wow animate fadeInDown"
+              className="col-lg-6 col-md-6 wow animate fadeInDown"
               data-wow-delay="200ms"
               data-wow-duration="1500ms"
             >
@@ -62,13 +62,13 @@ return (
                      </li>
            
                     </ul>
-                    <div className="blog-comment">
+                    {/* <div className="blog-comment">
                       <span>Comment (20)</span>
-                    </div>
+                    </div> */}
                   </div>
                   <h4>
                     <Link  href={`/blog/${blog?.slug.current}`}>
-                      Decoding the Cloud A Deep Dive into SaaS Trends.
+                    {blog?.title}
                     </Link>
                   </h4>
                   <Link  href={`/blog/${blog?.slug.current}`} className="read-more-btn">
@@ -91,6 +91,7 @@ return (
             </div>
 )})}
 
+</div>
   
 </div>
 

@@ -22,6 +22,7 @@ import Tag from './tag'
  import { Faqs } from './faqs'
  import { Contact } from './contact'
  import { homeCauseSlider } from './homeCauseStudySlider'
+ import { Brands } from './brands'
 export const schemaTypes = [
     
     homebanner,
@@ -40,4 +41,5 @@ export const schemaTypes = [
      Faqs,
      Contact,
      homeCauseSlider,
+     Brands,
     post, author, category, blockContent ,pageType ,heroType ,designType]
