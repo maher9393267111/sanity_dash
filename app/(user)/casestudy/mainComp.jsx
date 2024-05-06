@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 import urlFor from '../../../lib/urlFor';
 
-const CaseStudyPage = ({cases ,contact}) => {
+const CaseStudyPage = ({cases ,contact , loadMore}) => {
   useWow()
   return (
     <MainLayout contact={contact}>
@@ -66,20 +66,20 @@ return (
 )})}
 
         </div>
-          <div className="row">
+        <div className="row mtt !mt-[44px]">
             <div
               className="col-lg-12 d-flex justify-content-center wow animate fadeInUp"
               data-wow-delay="400ms"
               data-wow-duration="1500ms"
             >
-              <Link href="/case-study" className="load-btn">
+              <button onClick={loadMore}  className="load-btn">
                 <span>
                   Load More
                   <svg viewBox="0 0 13 20">
                     <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
                   </svg>
                 </span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

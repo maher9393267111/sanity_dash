@@ -6,7 +6,7 @@ import urlFor from '../../../lib/urlFor';
 import { useRouter } from "next/navigation";
 
 
-const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData ,loadMore }) => {
+const Blogpage = ({blogs ,catsData ,tagsData ,newpostsData ,loadMore ,isparams }) => {
   useWow()
 
 
@@ -114,6 +114,8 @@ return (
 
 </div> */}
 
+{!isparams &&
+
 <div className="row mtt !mt-[44px]">
             <div
               className="col-lg-12 d-flex justify-content-center wow animate fadeInUp"
@@ -130,6 +132,8 @@ return (
               </button>
             </div>
           </div>
+
+}
 
 
 </div>

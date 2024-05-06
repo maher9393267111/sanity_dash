@@ -148,7 +148,7 @@ const Home1Banner = ({data}) => {
             </div>
           </div>
         </div>
-        <div className="video-area">
+        {/* <div className="video-area">
           <div className="badge">
             <span className="badge__char">S</span>
             <span className="badge__char">T</span>
@@ -182,8 +182,11 @@ const Home1Banner = ({data}) => {
               </a>
             </div>
           </div>
-        </div>
-        <React.Fragment>
+        </div> */}
+
+
+
+        {/* <React.Fragment>
           <ModalVideo
             channel="youtube"
             onClick={() => setOpen(true)}
@@ -193,7 +196,7 @@ const Home1Banner = ({data}) => {
             ratio="16:9"
             onClose={() => setOpen(false)}
           />
-        </React.Fragment>
+        </React.Fragment> */}
       </div>
     </>
   );
