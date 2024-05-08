@@ -146,7 +146,7 @@ const Home1Portfolio = ({ showcaseData }) => {
                       <SwiperSlide className="swiper-slide">
                         <div className="eg-card">
                           <div className="card-img">
-                            <img src={urlFor(item?.image).url()} alt="" />
+                            <img src={urlFor(item?.image)?.url()} alt="" />
                           </div>
                           <div className="card-content">
                             {/* <Link

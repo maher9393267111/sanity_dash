@@ -43,7 +43,7 @@ return (
               <div className="blog-card style-2">
                 <div className="blog-card-img-wrap">
                   <Link href={`/blog/${blog?.slug.current}`} className="card-img">
-                    <img   src={urlFor(blog.mainImage).url()}  alt="" />
+                    <img   src={urlFor(blog.mainImage)?.url()}  alt="" />
                   </Link>
                   <Link href={`/blog/${blog?.slug.current}`} className="date">
                     <span>

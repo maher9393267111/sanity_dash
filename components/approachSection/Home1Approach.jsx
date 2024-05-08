@@ -58,7 +58,7 @@ const Home1Approach = ({data:item}) => {
                 <div className="single-approach">
                   <div className="img-area">
                     <img 
-                  src={urlFor(item?.image).url()} 
+                  src={urlFor(item?.image)?.url()} 
                     
                     alt="" />
                   </div>

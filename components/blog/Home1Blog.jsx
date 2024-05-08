@@ -56,9 +56,9 @@ return (
               <div className="blog-card">
                 <div className="blog-card-img-wrap">
                   <Link href={`/blog/${blog?.slug.current}`}  className="card-img">
-                    <img  src={urlFor(blog.mainImage).url()}   alt="" />
+                    <img  src={urlFor(blog.mainImage)?.url()}   alt="" />
                   </Link>
-                  <Link href={`/blog/${blog?.slug.current}`}  className="date">
+                  <Link href={`/blog/${blog?.slug?.current}`}  className="date">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={15}

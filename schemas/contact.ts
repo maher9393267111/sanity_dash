@@ -128,6 +128,12 @@ export const Contact = defineType({
         type: "string",
       }),
 
+      defineField({
+        name: "map",
+        type: "string",
+      }),
+ 
+
 
 
           ],

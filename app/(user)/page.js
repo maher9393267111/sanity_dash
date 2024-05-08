@@ -226,7 +226,7 @@ console.log(showcaseData)
       */}
     
      
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

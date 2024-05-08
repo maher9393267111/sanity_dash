@@ -29,7 +29,7 @@ return (
               <div className="case-study-card style-2">
                 <div className="card-img">
                   <img 
-                  src={urlFor(item.mainImage).url()}
+                  src={urlFor(item.mainImage)?.url()}
                   
                   alt="" />
                 </div>

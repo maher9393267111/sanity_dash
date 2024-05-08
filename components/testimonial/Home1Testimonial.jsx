@@ -200,7 +200,7 @@ const Home1Testimonial = ({data:items}) => {
                           <div className="author-area">
                             <div className="author-img">
                               <img
-                                src={urlFor(item?.image).url()} 
+                                src={urlFor(item?.image)?.url()} 
                                 alt=""
                               />
                             </div>

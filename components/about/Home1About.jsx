@@ -182,7 +182,7 @@ return (
                 </div>
               </div>
             </div>
-            <div
+            {/* <div
               className="col-lg-3 d-flex justify-content-lg-end wow animate fadeInRight"
               data-wow-delay="200ms"
               data-wow-duration="2000ms"
@@ -207,7 +207,7 @@ style={{   width: "42px !important" ,
 
 value={achive?.Icon} /> 
 
-{/* <Icon value={item?.sidebarIcon} /> */}
+
 
 
      
@@ -217,9 +217,9 @@ value={achive?.Icon} />
                     <div className="content">
                       <div className="number">
                         <h5 className="counter">
-                          {/* <CountUp end={150} delay={5} /> */}
+                      
                         </h5>
-                        {/* <span>Project</span> */}
+                     
                       </div>
                       <p>{achive?.title}</p>
                     </div>
@@ -230,7 +230,54 @@ value={achive?.Icon} />
                 
                 </ul>
               </div>
+            </div> */}
+
+
+<div
+              className="col-lg-3 d-flex justify-content-lg-end wow animate fadeInRight"
+              data-wow-delay="200ms"
+              data-wow-duration="2000ms"
+            >
+              <div className="about-countdown-area">
+                <ul>
+
+
+                {data?.achivments?.map((achive, index) => {
+                  
+                  return (
+
+                  <li key={index} className="single-countdown">
+                    <div className="icon">
+                    <InlineSvgPreviewComponent
+style={{   width: "42px !important" ,
+     height: "42px",
+     marginRight: "8px",
+     flexShrink: "0"}}
+
+value={achive?.Icon} /> 
+
+
+                    </div>
+                    <div className="content">
+                      <div className="number">
+                        <h5 className="counter">
+                          <CountUp end={achive?.number} delay={5} />
+                        </h5>
+                        <span>{achive?.numbertitle}</span>
+                      </div>
+                      <p>{achive?.title}</p>
+                    </div>
+                  </li>
+                
+
+                  )})}
+                
+                </ul>
+              </div>
             </div>
+
+
+
           </div>
 
 

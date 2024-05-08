@@ -44,12 +44,7 @@ const ContactPageMain = ({contact}) => {
               </div>
             </div>
           </div>
-          <div className="row !mt-6 g-lg-4 gy-5">
 
-<div className=" col-lg-9 row  !mb-4 md:mb-0">
-
-
-<div className="row">
 
 
 
@@ -57,8 +52,9 @@ const ContactPageMain = ({contact}) => {
                   
                   return (
 
+
+          <div key={index} className="row mtt g-lg-4 gy-5">
             <div
-            key={index}
               className="col-lg-4 wow animate fadeInLeft"
               data-wow-delay="200ms"
               data-wow-duration="1500ms"
@@ -83,44 +79,40 @@ const ContactPageMain = ({contact}) => {
                     </svg>
                   </div>
                   <div className="content">
-                    <span>Working Hours</span>
-                    <h6>{item?.worktime}</h6>
+                  <span>Working Hours</span>
+                <h6>{item?.worktime}</h6>
                     <h6>
-                      {item?.holiday} : <span>Closed</span>
+                    {item?.holiday}  : <span>Closed</span>
                     </h6>
                   </div>
                 </div>
               </div>
             </div>
-
-                  )})}
-
-</div>
-
-</div>
-
-
-
-{/* ----map--- */}
             <div
-              className="col-lg-3 wow animate zoomIn"
+              className="col-lg-8 wow animate zoomIn"
               data-wow-delay="400ms"
               data-wow-duration="1500ms"
             >
               <div className="company-map">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.5647631857846!2d90.36311167605992!3d23.83407118555764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c14c8682a473%3A0xa6c74743d52adb88!2sEgens%20Lab!5e0!3m2!1sen!2sbd!4v1700138349574!5m2!1sen!2sbd"
+                  src={item?.map}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
             </div>
-
-
           </div>
+
+
+
+                  )})}
+
         </div>
       </div>
+
+
+
 
       {/* <div className="contact-section">
         <div className="container">

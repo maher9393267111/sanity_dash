@@ -21,7 +21,7 @@ const  CaseStudyDetails = ({casedata ,contact}) => {
             <div className="col-lg-8">
               <div className="case-thumb">
                 <img 
-                src={urlFor(casedata.mainImage).url()} 
+                src={urlFor(casedata?.mainImage)?.url()} 
                 
                 alt="" />
               </div>

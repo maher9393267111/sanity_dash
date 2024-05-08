@@ -62,6 +62,16 @@ export const AboutOne = defineType({
               title: "Title",
             },
 
+            {
+              name: "number",
+              type: "string",
+              title: "Number",
+            },
+            {
+              name: "numbertitle",
+              type: "string",
+              title: "NumberTitle",
+            },
             
     ({ name: "Icon", type: "inlineSvg" }),
 

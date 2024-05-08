@@ -119,12 +119,12 @@ return (
                 <div className="partner-logos">
                   <img
                     className="white"
-                    src={urlFor(partner?.imagewhite).url()} 
+                    src={urlFor(partner?.imagewhite)?.url()} 
                     alt=""
                   />
                   <img
                     className="black"
-                    src={urlFor(partner?.imageblack).url()} 
+                    src={urlFor(partner?.imageblack)?.url()} 
                     alt=""
                   />
                 </div>
@@ -432,7 +432,9 @@ return (
           </div>
         </div>
       </div>
-      <footer className="footer-section">
+
+
+      {/* <footer className="footer-section">
         <div className="container">
           <div className="footer-top">
             <div className="row align-items-center justify-content-center">
@@ -725,7 +727,9 @@ return (
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
+
+
     </MainLayout>
   );
 };

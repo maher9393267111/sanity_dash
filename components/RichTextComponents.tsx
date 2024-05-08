@@ -11,7 +11,7 @@ export const RichTextComponents = {
                 <div className='relativ !w-[400px] m-10 mx-auto h-[400px]'>
                     <img
                         className='object-contain'
-                        src={urlFor(value).url()}
+                        src={urlFor(value)?.url()}
                         
                         alt="Blog Content Image"
                     

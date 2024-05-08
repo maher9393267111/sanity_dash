@@ -51,7 +51,7 @@ const Home5whyChoose = ({data}) => {
             >
               <div className="why-choose-img">
                 <img 
-                  src={urlFor(data?.image).url()} 
+                  src={urlFor(data?.image)?.url()} 
                 
                 alt="" />
               </div>
